@@ -1,0 +1,133 @@
+
+PRÁCTICA ESPN
+
+SIGN UP
+
+Inicio
+Abrir pagina web ESPN;
+Hacer hover sobre el icono de usuario;
+Navegar hasta el item del Menu de log in;
+En la pagina de autenticación indicar que no existe cuenta con el botón Sign Up;
+Ingresar primer nombre en el campo ‘first Name’;
+Ingresar apellido en el campo ‘last name’;
+Ingresar el correo en el campo de email;
+Ingresar la contraseña en el campo de password;
+Si se desea ver la contraseña ingresada, seleccionar el check ‘show password’;
+Si se desea que lleguen noticias al correo seleccionar el check de ‘ESPN, ESPN+ and The Walt Disney Family of Companies’;
+Hacer click sobre el botón de sign up;
+Fin
+
+LOGIN
+
+Inicio
+Abrir pagina web ESPN;
+Hacer hover sobre el icono de usuario;
+Navegar hasta el item del Menu de log in;
+Ingresar los datos de autenticación en los campos de usuario y contraseña;
+Presionar el botón login;
+Fin
+
+
+ELIMINAR CUENTA
+
+Inicio
+Abrir pagina web ESPN;
+Hacer hover sobre el icono de usuario;
+Navegar hasta el item del Menu de log in;
+Ingresar los datos de autenticación en los campos de usuario y contraseña;
+Presionar el botón login;
+Hacer hover sobre el icono de usuario;
+Navegar hasta el item del Menu de ESPN Profile;
+Realizar scroll en el modal emergente hasta llegar al modulo Delete Account;
+Hacer click sobre el link ‘’Delete account”;
+Hacer click sobre el botón ‘Yes, delete this account’;
+Fin
+
+
+LOG OUT
+Inicio
+Abrir pagina web ESPN;
+Hacer hover sobre el icono de usuario;
+Navegar hasta el item del Menu de log in;
+Ingresar los datos de autenticación en los campos de usuario y contraseña;
+Presionar el botón login;
+Hacer hover sobre el icono de usuario;
+Navegar hasta el item del Menu de log out;
+Fin
+
+
+
+
+
+
+
+PRACTICA INTERACIÓN CON CAJEROS
+
+
+INTERACCIONES DE CAJERO
+
+
+Consulta
+
+Before
+Ingresas la tarjeta
+
+@Test
+@DisplayName(“consulta”)
+Inicio
+Seleccionar la operación de consulta;
+Ingresar contraseña;
+Presionar el botón de confirmar;
+Visualizar el saldo;
+Presionar entra las opciones de realizar otra consulta o terminar transacción;
+Fin
+
+After
+Imprimir el recibo de la transacción o ver lo en pantalla
+Cerrar sesión
+
+
+Retiro
+
+Before
+Ingresas la tarjeta
+
+@Test
+@DisplayName(“retiro”)
+Inicio
+Selecionar la opción de retiro
+Seleccionar dentro de una lista de valores de posible retiro o ingresar un valor personalizado en caso deseado
+Presionar la tecla de continuar
+Ingresar la contraseña
+Presionar en el botón de confirmar contraseña
+Fin
+
+After
+Imprimir el recibo de la transacción o ver lo en pantalla
+Cerrar sesión
+
+
+Traspaso
+
+Before
+Ingresas la tarjeta
+
+@Test
+@DisplayName(“traspaso”)
+Inicio
+Selecionar la opción de traspaso
+Seleccionar dentro de una lista de valores de posible traspaso o ingresar un valor personalizado en caso deseado
+Presionar la tecla de continuar
+Seleccionar la cuenta de origen
+Presionar en el botón de continuar
+Seleccionar si la cuenta es corriente o de ahorros
+Ingresar el numero de la cuenta
+Presionar en el botón de continuar
+Confirmar los datos ingresados
+Ingresar la contraseña
+Presionar en el botón de confirmar contraseña
+Fin
+
+After
+Imprimir el recibo de la transacción o ver lo en pantalla
+Cerrar sesión
