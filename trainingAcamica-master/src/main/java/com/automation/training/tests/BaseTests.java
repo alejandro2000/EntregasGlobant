@@ -14,7 +14,7 @@ public class BaseTests {
 	private WikiHomePage wikiHome;
 	
 	@BeforeSuite(alwaysRun=true)
-	@Parameters({"browser"})
+	@Parameters({"chrome"})
 	public void beforeSuite(String browser) {
 		myDriver = new MyDriver(browser);
 		wikiHome = new WikiHomePage(myDriver.getDriver());

@@ -1,3 +1,75 @@
+PRACTICA INTERACIÓN CON CAJEROS
+
+
+INTERACCIONES DE CAJERO
+
+
+Consulta
+
+Before
+Disponer de una tarjeta corriente o de ahorro;
+Ingresar la tarjeta;
+
+@Test
+@DisplayName(“consulta”)
+Inicio
+Seleccionar la operación de consulta;
+Ingresar contraseña;
+Presionar el botón de confirmar;
+Visualizar el saldo;
+Presionar entre las opciones de realizar otra consulta o terminar transacción;
+Fin
+
+
+//Retiro
+
+@Test
+@DisplayName(“retiro”)
+Inicio
+Seleccionar la opción de retiro;
+Seleccionar dentro de una lista de valores de posible retiro o ingresar un valor personalizado en caso deseado;
+Presionar la tecla de continuar;
+Ingresar la contraseña;
+Presionar en el botón de confirmar contraseña;
+Fin
+
+
+
+//Traspaso
+
+@Test
+@DisplayName(“traspaso”)
+Inicio
+Selecionar la opción de traspaso;
+Seleccionar dentro de una lista de valores de posible traspaso o ingresar un valor personalizado en caso deseado;
+Presionar la tecla de continuar;
+Seleccionar la cuenta de origen;
+Presionar en el botón de continuar;
+Seleccionar si la cuenta es corriente o de ahorros;
+Ingresar el numero de la cuenta;
+Presionar en el botón de continuar;
+Confirmar los datos ingresados;
+Ingresar la contraseña;
+Presionar en el botón de confirmar contraseña;
+Fin
+
+After
+Imprimir el recibo de la transacción o ver lo en pantalla;
+Cerrar sesión;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 PRÁCTICA ESPN
 
@@ -54,80 +126,3 @@ Presionar el botón login;
 Hacer hover sobre el icono de usuario;
 Navegar hasta el item del Menu de log out;
 Fin
-
-
-
-
-
-
-
-PRACTICA INTERACIÓN CON CAJEROS
-
-
-INTERACCIONES DE CAJERO
-
-
-Consulta
-
-Before
-Ingresas la tarjeta
-
-@Test
-@DisplayName(“consulta”)
-Inicio
-Seleccionar la operación de consulta;
-Ingresar contraseña;
-Presionar el botón de confirmar;
-Visualizar el saldo;
-Presionar entra las opciones de realizar otra consulta o terminar transacción;
-Fin
-
-After
-Imprimir el recibo de la transacción o ver lo en pantalla
-Cerrar sesión
-
-
-Retiro
-
-Before
-Ingresas la tarjeta
-
-@Test
-@DisplayName(“retiro”)
-Inicio
-Selecionar la opción de retiro
-Seleccionar dentro de una lista de valores de posible retiro o ingresar un valor personalizado en caso deseado
-Presionar la tecla de continuar
-Ingresar la contraseña
-Presionar en el botón de confirmar contraseña
-Fin
-
-After
-Imprimir el recibo de la transacción o ver lo en pantalla
-Cerrar sesión
-
-
-Traspaso
-
-Before
-Ingresas la tarjeta
-
-@Test
-@DisplayName(“traspaso”)
-Inicio
-Selecionar la opción de traspaso
-Seleccionar dentro de una lista de valores de posible traspaso o ingresar un valor personalizado en caso deseado
-Presionar la tecla de continuar
-Seleccionar la cuenta de origen
-Presionar en el botón de continuar
-Seleccionar si la cuenta es corriente o de ahorros
-Ingresar el numero de la cuenta
-Presionar en el botón de continuar
-Confirmar los datos ingresados
-Ingresar la contraseña
-Presionar en el botón de confirmar contraseña
-Fin
-
-After
-Imprimir el recibo de la transacción o ver lo en pantalla
-Cerrar sesión

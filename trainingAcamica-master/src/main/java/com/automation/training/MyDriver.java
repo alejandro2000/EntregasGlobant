@@ -9,16 +9,11 @@ public class MyDriver {
 	private WebDriver driver;
 	
 	public MyDriver(String browser) {
-		switch (browser) {
-		case "firefox":
+		if ("firefox".equals(browser)) {
 			driver = new FirefoxDriver();
-			break;
-		case "chrome":
-			System.setProperty("webdriver.chrome.driver", "/Users/santiago.hernandez/Documents/chromedriver");
+		} else if ("chrome".equals(browser)) {
+			System.setProperty("webdriver.chrome.driver", "chromedriver");
 			driver = new ChromeDriver();
-			break;
-		default:
-			break;
 		}
 	}
 	

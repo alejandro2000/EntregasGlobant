@@ -9,13 +9,13 @@ public class WikiHomePage extends BasePage{
 	 
 	public WikiHomePage(WebDriver driver) {
 		super(driver);
-		driver.get("http://wikipedia.org");
+		driver.get("https://en.wikipedia.org/wiki/Main_Page");
 	}
 
-	@FindBy(id="searchInput")
+	@FindBy(name="search")
 	private WebElement searchInput;
 	
-	@FindBy(xpath="//*[@id='search-form']/fieldset/button")
+	@FindBy(name="go")
 	private WebElement searchButton;
 	
 	public ArticlePage buscar(String busqueda) {

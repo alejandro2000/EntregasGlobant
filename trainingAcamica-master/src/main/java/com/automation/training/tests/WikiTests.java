@@ -13,8 +13,8 @@ public class WikiTests extends BaseTests{
 	@Test
 	public void testWikiSearch() {
 		WikiHomePage home = getWikiHomePage();
-		ArticlePage articlePage = home.buscar("Java");
-		Assert.assertEquals(articlePage.getPageTitle(), "Java");	
+		ArticlePage articlePage = home.buscar("LeBron James");
+		Assert.assertEquals(articlePage.getPageTitle(), "LeBron James");
 	}
 
 }
