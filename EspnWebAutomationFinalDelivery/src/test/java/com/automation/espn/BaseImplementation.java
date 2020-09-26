@@ -28,6 +28,7 @@ public class BaseImplementation {
                 MAC_NAME:WINDOWS_NAME);
         System.setProperty(NAVEGATOR_PROPERTY,chromeDriverPath);
         driver = new ChromeDriver();
+        driver.manage().window().maximize();
         return driver;
     }
 

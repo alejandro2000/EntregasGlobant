@@ -21,7 +21,7 @@ public class CreateAccount {
     @Test(description = "Sucesful user creation - id=00001")
     public void sucessfulUserCreation(){
 
-        System.out.println("hello world");
+
     }
 
     @AfterClass
