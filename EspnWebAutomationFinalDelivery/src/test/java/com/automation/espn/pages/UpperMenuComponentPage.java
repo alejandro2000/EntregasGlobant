@@ -1,15 +1,20 @@
 package com.automation.espn.pages;
 
-import com.automation.espn.BaseImplementation;
+import net.serenitybdd.core.pages.PageObject;
+import net.thucydides.core.annotations.DefaultUrl;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 
-public class UpperMenuComponentPage extends BaseImplementation {
+@DefaultUrl("https://www.espn.com/?src=com&_adblock=true")
+public class UpperMenuComponentPage extends PageObject {
 
-    public UpperMenuComponentPage(WebDriver driver) {
-        super(driver);
-    }
+    @FindBy(css = "a#global-user-trigger")
+    private WebElement userIcon;
 
-    public void userGoToMainModal(){
 
+    public void userGoToRegisterModal() {
+        clickOn(userIcon);
     }
 }

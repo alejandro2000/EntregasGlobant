@@ -1,30 +1,27 @@
 package com.automation.espn.tests;
 
-import com.automation.espn.pages.UpperMenuComponentPage;
-import org.openqa.selenium.WebDriver;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.Test;
+import com.automation.espn.steps.CreateAccountStep;
+import net.thucydides.core.annotations.Steps;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+
 
 public class CreateAccount {
+    @Steps
+    CreateAccountStep createAccountStep;
 
-    private WebDriver driver;
-    UpperMenuComponentPage upperMenuComponentPage;
-
-    @BeforeClass
+    @Before
     public void setUp(){
-        upperMenuComponentPage = new UpperMenuComponentPage(driver);
-        driver = upperMenuComponentPage.chromeDriverConnection("mac");
-        driver.get("https://www.espn.com/?src=com&_adblock=true");
+        createAccountStep.OpenEspnPlatform();
     }
 
-    @Test(description = "Sucesful user creation - id=00001")
-    public void sucessfulUserCreation(){
-
-
+    @Test
+    public void sucessfulUserCreation() {
+        //upperMenuComponentPage.userGoToRegisterModal();
     }
 
-    @AfterClass
+    @After
     public void tearDown(){
 
     }

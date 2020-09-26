@@ -20,5 +20,11 @@
             <version>6.14.3</version>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>net.serenity-bdd</groupId>
+            <artifactId>core</artifactId>
+            <version>1.0.30</version>
+        </dependency>
+
     </dependencies>
 </project>
