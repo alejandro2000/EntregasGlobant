@@ -63,6 +63,8 @@ public abstract class BasePage {
     }
 
 
+
+
     public Boolean isDisplayed(By locator){
         try {
             return driver.findElement(locator).isDisplayed();

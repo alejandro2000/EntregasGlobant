@@ -38,7 +38,7 @@ Feature: Create an account
 
 
   @id=00003
-  Scenario Outline: failed user creation with an already taken mail adress
+  Scenario Outline: failed user creation with an already taken email adress
     When user create the account with the parameters
       | firstName   | lastName   | emailAdress   | Password   | showPaswordCheck   | newsletterCheck   |
       | <firstName> | <lastName> | <emailAdress> | <Password> | <showPaswordCheck> | <newsletterCheck> |
