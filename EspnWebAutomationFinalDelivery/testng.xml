@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <test verbose="1" preserve-order="true"
+          name="Create Account">
+        <classes>
+            <class name="com.automation.espn.tests.CreateAccount">
+                <methods>
+                    <include name="successfulUserCreation"/>
+                    <include name="failedUserCreation"/>
+                    <include name="failedUserCreationWithAnAlreadyTakenEmailAddress"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <!--<test verbose="2" preserve-order="true"
+          name="Login">
+        <classes>
+            <class name="com.automation.espn.tests.CreateAccount">
+                <methods>
+                    <include name="successfulUserLogin"/>
+                    <include name="failedUserLogin"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test verbose="3" preserve-order="true"
+          name="Logout">
+        <classes>
+            <class name="com.automation.espn.tests.CreateAccount">
+                <methods>
+                    <include name="succesfulUserLogout"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test verbose="4" preserve-order="true"
+          name="Delete Account">
+        <classes>
+            <class name="com.automation.espn.tests.DeleteAccount">
+                <methods>
+                    <include name="successfulAccountElimination"/>
+                    <include name="failedAccountElimination"/>
+                </methods>
+            </class>
+        </classes>
+    </test>-->
+</suite>

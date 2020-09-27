@@ -14,12 +14,12 @@ Feature: Create an account
   @id=00001
   Scenario Outline: Sucesful user creation
     When user create the account with the parameters
-      | firstName   | lastName   | emailAdress   | Password   | showPaswordCheck   | newsletterCheck   |
-      | <firstName> | <lastName> | <emailAdress> | <Password> | <showPaswordCheck> | <newsletterCheck> |
+      | firstName   | lastName   | emailAddress   | Password   | showPasswordCheck   | newsletterCheck   |
+      | <firstName> | <lastName> | <emailAddress> | <Password> | <showPasswordCheck> | <newsletterCheck> |
     Then user should see a 'Welcome <firstName>!' message
 
     Examples:
-      | firstName | lastName | emailAdress                | Password         | showPaswordCheck | newsletterCheck |
+      | firstName | lastName | emailAddress               | Password         | showPasswordCheck | newsletterCheck |
       | Cody      | Obrien   | cody.obrien@example.com    | secretpassword12 | true             | true            |
       | Bobbie    | Butler   | bobbie.butler@example.com  | bbie.butte       | true             | false           |
       | Serenity  | Garza    | serenity.garza@example.com | robinson         | false            | true            |
@@ -28,23 +28,23 @@ Feature: Create an account
   @id=00002
   Scenario Outline: failed user creation
     When user create the account with the parameters
-      | firstName   | lastName   | emailAdress   | Password   | showPaswordCheck   | newsletterCheck   |
-      | <firstName> | <lastName> | <emailAdress> | <Password> | <showPaswordCheck> | <newsletterCheck> |
+      | firstName   | lastName   | emailAddress   | Password   | showPasswordCheck   | newsletterCheck   |
+      | <firstName> | <lastName> | <emailAddress> | <Password> | <showPasswordCheck> | <newsletterCheck> |
     Then user should see a 'Please enter your' message
 
     Examples:
-      | firstName | lastName | emailAdress | Password | showPaswordCheck | newsletterCheck |
-      |           |          |             |          |                  |                 |
+      | firstName | lastName | emailAddress | Password | showPasswordCheck | newsletterCheck |
+      |           |          |              |          |                   |                 |
 
 
   @id=00003
-  Scenario Outline: failed user creation with an already taken email adress
+  Scenario Outline: failed user creation with an already taken email address
     When user create the account with the parameters
-      | firstName   | lastName   | emailAdress   | Password   | showPaswordCheck   | newsletterCheck   |
-      | <firstName> | <lastName> | <emailAdress> | <Password> | <showPaswordCheck> | <newsletterCheck> |
+      | firstName   | lastName   | emailAddress   | Password   | showPasswordCheck   | newsletterCheck   |
+      | <firstName> | <lastName> | <emailAddress> | <Password> | <showPasswordCheck> | <newsletterCheck> |
     Then user should see an already taken mail adress message
 
     Examples:
-      | firstName | lastName | emailAdress     | Password | showPaswordCheck | newsletterCheck |
-      | Angel     | Murray   | hello@gmail.com | wrestler | false            | false           |
+      | firstName | lastName | emailAddress    | Password | showPasswordCheck | newsletterCheck |
+      | Angel     | Murray   | hello@gmail.com | wrestler | false             | false           |
 

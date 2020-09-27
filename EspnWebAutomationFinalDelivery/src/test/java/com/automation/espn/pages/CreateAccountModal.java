@@ -41,8 +41,11 @@ public class CreateAccountModal extends BasePage {
         click(SIGN_UP_ITEM);
         waitElementToBeClickable(USER_NAME);
         click(USER_NAME);
+        waitElementToBeClickable(LAST_NAME);
         click(LAST_NAME);
+        waitElementToBeClickable(EMAIL);
         click(EMAIL);
+        waitElementToBeClickable(PASSWORD);
         click(PASSWORD);
         waitElementToBeClickable(SIGN_UP);
         click(SIGN_UP);
@@ -50,8 +53,6 @@ public class CreateAccountModal extends BasePage {
     }
 
     public String createdUserName() {
-        waitElementToBeClickable(USER_ICON);
-        switchOutOfFrame();
         click(USER_ICON);
         return getText(USER_CREATED_MESSAGE).replace("!", "");
     }
@@ -60,9 +61,9 @@ public class CreateAccountModal extends BasePage {
         return findElements(MANDATORY_FIELDS).stream().allMatch(element -> element.getText().contains("Please enter"));
     }
 
-    public String usedEmail(){
+    public String usedEmail() {
         waitElementToBeVisible(USED_EMAIL_ADRESS, 10);
-        return findElement(USED_EMAIL_ADRESS).getText().substring(0,46);
+        return findElement(USED_EMAIL_ADRESS).getText().substring(0, 46);
     }
 
     public void logOutOfThePlatform() {
