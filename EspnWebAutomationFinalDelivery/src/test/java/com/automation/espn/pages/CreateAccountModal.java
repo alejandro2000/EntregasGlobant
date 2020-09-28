@@ -11,12 +11,27 @@ public class CreateAccountModal extends BasePage {
     }
 
     public void openTheRegistryModal() {
+        waitNoVisibleIframe();
         waitElementToBeClickable(USER_ICON);
         click(USER_ICON);
         click(LOG_IN_ITEM);
     }
 
     public void fillTheRegistryForm(String name, String lastname, String email, String password, boolean showpass,
+                                         boolean newsletter) {
+        switchToFrame("disneyid-iframe");
+        waitElementToBeClickable(MODAL_FORM);
+        click(SIGN_UP_ITEM);
+        waitElementToBeClickable(USER_NAME);
+        click(USER_NAME);
+        type(name, USER_NAME);
+        type(lastname, LAST_NAME);
+        type(email, EMAIL);
+        type(password, PASSWORD);
+        waitElementToBeVisible(SIGN_UP,10);
+        click(SIGN_UP);
+    }
+    public void fillTheRegistryFormEmail(String name, String lastname, String email, String password, boolean showpass,
                                     boolean newsletter) {
         switchToFrame("disneyid-iframe");
         waitElementToBeClickable(MODAL_FORM);
@@ -27,27 +42,21 @@ public class CreateAccountModal extends BasePage {
         type(lastname, LAST_NAME);
         type(email, EMAIL);
         type(password, PASSWORD);
-        waitElementToBeVisible(SHOW_PASSWORD, 10);
-        waitElementToBeClickable(SHOW_PASSWORD);
-        checkItem(showpass, SHOW_PASSWORD);
-        checkItem(newsletter, NEWS_LETTER);
-        waitElementToBeClickable(SIGN_UP);
-        click(SIGN_UP);
     }
 
     public void noTofillTheRegistryForm() {
         switchToFrame("disneyid-iframe");
-        waitElementToBeClickable(MODAL_FORM);
+        waitElementToBeVisible(MODAL_FORM,10);
         click(SIGN_UP_ITEM);
-        waitElementToBeClickable(USER_NAME);
+        waitElementToBeVisible(USER_NAME,10);
         click(USER_NAME);
-        waitElementToBeClickable(LAST_NAME);
+        waitElementToBeVisible(LAST_NAME,10);
         click(LAST_NAME);
-        waitElementToBeClickable(EMAIL);
+        waitElementToBeVisible(EMAIL,10);
         click(EMAIL);
-        waitElementToBeClickable(PASSWORD);
+        waitElementToBeVisible(PASSWORD,10);
         click(PASSWORD);
-        waitElementToBeClickable(SIGN_UP);
+        waitElementToBeVisible(SIGN_UP,10);
         click(SIGN_UP);
         waitElementToBeVisible(LAST_MANDATORY_FIELD, 10);
     }
@@ -62,8 +71,12 @@ public class CreateAccountModal extends BasePage {
     }
 
     public String usedEmail() {
-        waitElementToBeVisible(USED_EMAIL_ADRESS, 10);
-        return findElement(USED_EMAIL_ADRESS).getText().substring(0, 46);
+        try {
+            waitElementToBeVisible(USED_EMAIL_ADRESS,10);
+            return findElement(USED_EMAIL_ADRESS).getText().substring(0, 46);
+        }catch (Exception e){
+            return "Text not found";
+        }
     }
 
     public void logOutOfThePlatform() {

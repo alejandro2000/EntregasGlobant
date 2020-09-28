@@ -34,12 +34,16 @@ public class DeleteAccountModal extends BasePage {
         click(CANCEL_ACCOUNT);
         click(CONFIRM_ELIMINATION_BUTTON);
         click(CLOSE_MODAL);
-        waitElementToBeClickableItem(USER_ICON,10);
+        switchOutOfFrame();
+        waitVisibleIframe();
+        waitNoVisibleIframe();
         click(USER_ICON);
         click(LOG_IN_ITEM);
     }
 
     public void goToUserAdministrationCenterClosed() {
+        waitNoVisibleIframe();
+        waitElementToBeClickable(USER_ICON);
         click(USER_ICON);
         click(ESPN_PROFILE);
         switchToFrame("disneyid-iframe");
@@ -55,7 +59,8 @@ public class DeleteAccountModal extends BasePage {
     }
 
     public String noDeletedUser() {
-        waitElementToBeClickableItem(USER_ICON,10);
+        waitVisibleIframe();
+        waitNoVisibleIframe();
         click(USER_ICON);
         return getText(USER_CREATED_MESSAGE).replace("!", "");
     }

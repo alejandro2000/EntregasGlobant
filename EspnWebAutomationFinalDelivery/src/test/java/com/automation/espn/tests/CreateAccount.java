@@ -40,21 +40,21 @@ public class CreateAccount {
                                                                  String password, boolean showpass,
                                                                  boolean newsletter) {
         createAccountModal.openTheRegistryModal();
-        createAccountModal.fillTheRegistryForm(name, lastname, email, password, showpass, newsletter);
+        createAccountModal.fillTheRegistryFormEmail(name, lastname, email, password, showpass, newsletter);
         Assert.assertEquals(createAccountModal.usedEmail(), EMAIL_MESSAGE_INPUT);
     }
 
     @DataProvider
     public Object[][] dataProvider() {
         return new Object[][]{
-                new Object[]{"Serenity", "Garza", "serenity.garzx0@example.com", "secretpassword12", true, true}
+                    new Object[]{"Serenity", "Garza", "serenity.garzu2@example.com", "secretpassword13", false, false}
         };
     }
 
     @DataProvider
     public Object[][] dataProviderEmail() {
         return new Object[][]{
-                new Object[]{"Serenity", "Garza", "serenity.garzo12@example.com", "secretpassword12", true, true}
+                new Object[]{"Serenity", "Garza", "serenity.garzu@example.com", "secretpassword12", false, false}
         };
     }
 

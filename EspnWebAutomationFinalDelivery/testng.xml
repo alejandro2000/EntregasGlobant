@@ -16,7 +16,7 @@
     <test verbose="2" preserve-order="true"
           name="Login">
         <classes>
-            <class name="com.automation.espn.tests.CreateAccount">
+            <class name="com.automation.espn.tests.LogIn">
                 <methods>
                     <include name="successfulUserLogin"/>
                     <include name="failedUserLogin"/>
@@ -27,7 +27,7 @@
     <test verbose="3" preserve-order="true"
           name="Logout">
         <classes>
-            <class name="com.automation.espn.tests.CreateAccount">
+            <class name="com.automation.espn.tests.LogOut">
                 <methods>
                     <include name="succesfulUserLogout"/>
                 </methods>

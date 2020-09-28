@@ -27,7 +27,7 @@ public class LogOut {
     @DataProvider
     public Object[][] dataProvider(){
         return new Object[][]{
-                new Object[]{"serenity.garzx0@example.com", "secretpassword12"}
+                new Object[]{"serenity.garzu@example.com", "secretpassword13"}
         };
     }
 

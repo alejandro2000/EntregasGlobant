@@ -33,7 +33,7 @@ public class LogIn {
     @DataProvider
     public Object[][] dataProvider() {
         return new Object[][]{
-                new Object[]{"Serenity","serenity.garzx0@example.com", "secretpassword12"}
+                new Object[]{"Serenity","serenity.garzu@example.com", "secretpassword13"}
         };
     }
 
