@@ -47,7 +47,7 @@ public class CreateAccount {
     @DataProvider
     public Object[][] dataProvider() {
         return new Object[][]{
-                    new Object[]{"Serenity", "Garza", "serenity.garzu2@example.com", "secretpassword13", false, false}
+                    new Object[]{"Serenity", "Garza", "serenity.garzu9@example.com", "secretpassword13", false, false}
         };
     }
 

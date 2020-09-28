@@ -62,6 +62,8 @@ public class CreateAccountModal extends BasePage {
     }
 
     public String createdUserName() {
+        waitVisibleIframe();
+        waitNoVisibleIframe();
         click(USER_ICON);
         return getText(USER_CREATED_MESSAGE).replace("!", "");
     }
@@ -80,6 +82,8 @@ public class CreateAccountModal extends BasePage {
     }
 
     public void logOutOfThePlatform() {
+        waitVisibleIframe();
+        waitNoVisibleIframe();
         click(USER_ICON);
         click(LOG_OUT_ITEM);
     }

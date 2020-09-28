@@ -36,7 +36,7 @@ public class DeleteAccount {
     @DataProvider
     public Object[][] dataProvider() {
         return new Object[][]{
-                new Object[]{"serenity.garzu1@example.com", "secretpassword13"}
+                new Object[]{"serenity.garzu9@example.com", "secretpassword13"}
         };
     }
 
