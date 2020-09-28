@@ -24,6 +24,7 @@ public abstract class BasePage {
         System.setProperty("webdriver.chrome.webdriver", "src/test/resources/chromedriver/chromedriver");
         driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
+        driver.manage().timeouts().pageLoadTimeout(15, TimeUnit.SECONDS);
         driver.manage().window().maximize();
         return driver;
     }
@@ -84,6 +85,10 @@ public abstract class BasePage {
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
     }
 
+    public void scrollUntilBotton() {
+        ((JavascriptExecutor) driver).executeScript("window.scrollTo(0,document.body.scrollHeight);");
+    }
+
     public void visitWebSite(String url) {
         driver.get(url);
     }
@@ -111,26 +116,40 @@ public abstract class BasePage {
                 .until(ExpectedConditions.visibilityOf(element));
     }
 
-    public void waitElementToBeClickable(By locator, int seconds) {
-        WebElement element = driver.findElement(locator);
-        WebElement elementWaiting = new WebDriverWait(driver, seconds)
-                .until(ExpectedConditions.elementToBeClickable(element));
+    public void waitForPageToReload() {
+        new WebDriverWait(driver, 10).until(
+                webDriver -> ((JavascriptExecutor) webDriver).executeScript("return document.readyState").equals("complete"));
     }
+
+    public void waitElementToBeClickableItem(By locator, int seconds) {
+        try {
+            WebElement element = driver.findElement(locator);
+            WebElement elementWaiting = new WebDriverWait(driver, seconds)
+                    .until(ExpectedConditions.presenceOfElementLocated(locator));
+        } catch (Exception e) {
+
+        }
+    }
+
     public String getPageSource() {
         return driver.getPageSource();
     }
 
-    public void waitNoVisibleIframe(){
-        Boolean elementWaiting = new WebDriverWait(driver, 30)
-                .until(ExpectedConditions.not(
-                        ExpectedConditions.presenceOfElementLocated(By.cssSelector("iframe#disneyid-iframe"))));
+    public void waitNoVisibleIframe() {
+        try {
+            Boolean elementWaiting = new WebDriverWait(driver, 3)
+                    .until(ExpectedConditions.not(
+                            ExpectedConditions.presenceOfElementLocated(By.cssSelector("iframe#disneyid-iframe"))));
+        } catch (Exception e) {
+
+        }
     }
 
-    public void waitVisibleIframe(){
+    public void waitVisibleIframe() {
         try {
             WebElement elementWaiting = new WebDriverWait(driver, 3)
                     .until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("div iframe#disneyid-iframe")));
-        }catch (Exception e){
+        } catch (Exception e) {
         }
     }
 

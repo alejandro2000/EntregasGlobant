@@ -27,7 +27,7 @@ public class LogIn {
     }
 
     @Test(description = "failed user login id=00007", dataProvider = "dataProvider")
-    public void failedUserLogin(String email, String password) throws InterruptedException {
+    public void failedUserLogin(String name,String email, String password) {
         logInComponent.openTheRegistryModal();
         logInComponent.notSignInPlatform(email, password);
         Assert.assertEquals(logInComponent.userLogOutMessage(), "Welcome!");
@@ -36,7 +36,7 @@ public class LogIn {
     @DataProvider
     public Object[][] dataProvider() {
         return new Object[][]{
-                new Object[]{"serenity.garze16@example.com", "secretpassword12"}
+                new Object[]{"Serenity","serenity.garzx0@example.com", "secretpassword12"}
         };
     }
 

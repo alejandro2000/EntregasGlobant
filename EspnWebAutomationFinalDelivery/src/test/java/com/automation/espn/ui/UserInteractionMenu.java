@@ -4,7 +4,7 @@ import org.openqa.selenium.By;
 
 public class UserInteractionMenu {
 
-    public static final By USER_ICON = By.cssSelector("a#global-user-trigger");
+    public static final By USER_ICON = By.cssSelector(".user a#global-user-trigger");
     public static final By LOG_IN_ITEM = By.cssSelector("li.user a[tref*=login]");
     public static final By SIGN_UP_ITEM = By.cssSelector("a[did-translate='login.label.CREATE_ACCOUNT']");
 
@@ -15,6 +15,7 @@ public class UserInteractionMenu {
 
     public static final By ESPN_PROFILE = By.cssSelector("li.user a[tref*='modifyAccount']");
     public static final By CANCEL_ACCOUNT = By.cssSelector("#cancel-account");
+    public static final By MAIN_ESPN_IMG = By.cssSelector("a[name='&lpos=sitenavdefault&lid=sitenav_main-logo']");
 
     public static final By CONFIRM_ELIMINATION_BUTTON = By.cssSelector("button[did-translate='deactivate.confirmation" +
             ".buttons.confirm']");

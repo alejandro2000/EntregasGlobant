@@ -12,7 +12,7 @@ public class DeleteAccountModal extends BasePage {
     }
 
     public void openTheRegistryModal() {
-        waitElementToBeClickable(USER_ICON);
+        waitElementToBeClickableItem(USER_ICON,10);
         click(USER_ICON);
         click(LOG_IN_ITEM);
     }
@@ -33,27 +33,29 @@ public class DeleteAccountModal extends BasePage {
         scrollUntilVisibilityOfElement(CANCEL_ACCOUNT);
         click(CANCEL_ACCOUNT);
         click(CONFIRM_ELIMINATION_BUTTON);
+        click(CLOSE_MODAL);
+        waitElementToBeClickableItem(USER_ICON,10);
+        click(USER_ICON);
+        click(LOG_IN_ITEM);
     }
 
-    public void goToUserAdministationCenterClosed() throws InterruptedException {
-        Thread.sleep(2000);
+    public void goToUserAdministrationCenterClosed() {
         click(USER_ICON);
         click(ESPN_PROFILE);
         switchToFrame("disneyid-iframe");
-        Thread.sleep(2000);
+        waitVisibleIframe();
         click(CANCEL_ACCOUNT);
+        click(KEEP_ACCOUNT);
         click(CLOSE_MODAL);
+        switchOutOfFrame();
     }
 
     public String userDeleted() {
-        click(USER_ICON);
         return getText(USER_LOGGED_MESSAGE);
-
     }
 
-    public String noDeletedUser() throws InterruptedException {
-        Thread.sleep(10000);
-        switchOutOfFrame();
+    public String noDeletedUser() {
+        waitElementToBeClickableItem(USER_ICON,10);
         click(USER_ICON);
         return getText(USER_CREATED_MESSAGE).replace("!", "");
     }

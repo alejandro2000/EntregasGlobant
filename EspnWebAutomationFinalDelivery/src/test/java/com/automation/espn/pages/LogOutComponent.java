@@ -24,14 +24,14 @@ public class LogOutComponent extends BasePage {
         type(email, AUTH_EMAIL);
         type(password, AUTH_PASSWORD);
         click(AuthenticationComponent.AUTH_LOG_IN_BUTTON);
-        switchOutOfFrame();
     }
 
-    public String logOutOfThePlatform() throws InterruptedException {
-        Thread.sleep(10000);
+    public String logOutOfThePlatform() {
+        waitElementToBeClickable(USER_ICON);
         click(USER_ICON);
         click(LOG_OUT_ITEM);
-        Thread.sleep(10000);
+        waitNoVisibleIframe();
+        waitForPageToReload();
         click(USER_ICON);
         return getText(USER_LOGGED_MESSAGE);
     }

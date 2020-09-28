@@ -24,7 +24,6 @@ public class LogInComponent extends BasePage {
         type(email, AUTH_EMAIL);
         type(password, AUTH_PASSWORD);
         click(AuthenticationComponent.AUTH_LOG_IN_BUTTON);
-        switchOutOfFrame();
     }
 
     public void notSignInPlatform(String email, String password) {
@@ -36,16 +35,14 @@ public class LogInComponent extends BasePage {
         switchOutOfFrame();
     }
 
-    public String userLogged() throws InterruptedException {
-        Thread.sleep(10000);
-        switchOutOfFrame();
+    public String userLogged(){
+        waitElementToBeClickableItem(USER_ICON,10);
         click(USER_ICON);
         return getText(USER_CREATED_MESSAGE).replace("!", "");
     }
 
-    public String userLogOutMessage() throws InterruptedException {
-        Thread.sleep(10000);
-        switchOutOfFrame();
+    public String userLogOutMessage() {
+        waitElementToBeClickableItem(USER_ICON,10);
         click(USER_ICON);
         return getText(USER_LOGGED_MESSAGE);
 

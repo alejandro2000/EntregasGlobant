@@ -28,25 +28,25 @@ public class DeleteAccount {
         Assert.assertEquals(deleteAccountModal.userDeleted(), "Welcome!");
     }
 
-    /*@Test(description = "failed account elimination id=00005", dataProvider = "dataProviderAccount")
-    public void failedAccountElimination(String name, String email, String password) throws InterruptedException {
+    @Test(description = "failed account elimination id=00005", dataProvider = "dataProviderAccount")
+    public void failedAccountElimination(String name, String email, String password) {
         deleteAccountModal.openTheRegistryModal();
         deleteAccountModal.signInPlatform(email, password);
-        deleteAccountModal.goToUserAdministationCenterClosed();
+        deleteAccountModal.goToUserAdministrationCenterClosed();
         Assert.assertEquals(deleteAccountModal.noDeletedUser(), name);
-    }*/
+    }
 
     @DataProvider
     public Object[][] dataProvider() {
         return new Object[][]{
-                new Object[]{"serenity.garzz12@example.com", "secretpassword12"}
+                new Object[]{"serenity.garzo0@example.com", "secretpassword12"}
         };
     }
 
     @DataProvider
     public Object[][] dataProviderAccount() {
         return new Object[][]{
-                new Object[]{"Serenity", "serenity.garze16@example.com", "secretpassword12"}
+                new Object[]{"Serenity", "serenity.garzo0@example.com", "secretpassword12"}
         };
     }
 

@@ -21,7 +21,7 @@ public class LogOut {
     }
 
     @Test(description = "succesful user logout id=00008", dataProvider = "dataProvider")
-    public void succesfulUserLogout(String email,String password) throws InterruptedException {
+    public void succesfulUserLogout(String email,String password){
         logOutComponent.openTheRegistryModal();
         logOutComponent.signInPlatform(email,password);
         Assert.assertEquals(logOutComponent.logOutOfThePlatform(),"Welcome!");
@@ -30,7 +30,7 @@ public class LogOut {
     @DataProvider
     public Object[][] dataProvider(){
         return new Object[][]{
-                new Object[]{"serenity.garze16@example.com", "secretpassword12"}
+                new Object[]{"serenity.garzx0@example.com", "secretpassword12"}
         };
     }
 
