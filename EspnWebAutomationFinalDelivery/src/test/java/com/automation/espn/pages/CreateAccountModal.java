@@ -46,7 +46,6 @@ public class CreateAccountModal extends BasePage {
 
     public void noTofillTheRegistryForm() {
         switchToFrame("disneyid-iframe");
-        waitElementToBeVisible(MODAL_FORM,10);
         click(SIGN_UP_ITEM);
         waitElementToBeVisible(USER_NAME,10);
         click(USER_NAME);
@@ -62,7 +61,6 @@ public class CreateAccountModal extends BasePage {
     }
 
     public String createdUserName() {
-        waitVisibleIframe();
         waitNoVisibleIframe();
         click(USER_ICON);
         return getText(USER_CREATED_MESSAGE).replace("!", "");
