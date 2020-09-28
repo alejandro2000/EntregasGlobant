@@ -3,17 +3,14 @@ package com.automation.espn.tests;
 import com.automation.espn.pages.LogOutComponent;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.DataProvider;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 
 public class LogOut {
 
     private LogOutComponent logOutComponent;
     private WebDriver driver;
 
-    @BeforeClass
+    @BeforeMethod
     public void setUp() {
         logOutComponent = new LogOutComponent(driver);
         driver = logOutComponent.chromeDriverConnection();
@@ -34,7 +31,7 @@ public class LogOut {
         };
     }
 
-    @AfterTest
+    @AfterMethod
     public void tearDown() {
         logOutComponent.closeBrowser();
     }

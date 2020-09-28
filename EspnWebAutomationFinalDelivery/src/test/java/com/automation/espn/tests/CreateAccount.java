@@ -27,7 +27,7 @@ public class CreateAccount {
         createAccountModal.logOutOfThePlatform();
     }
 
-    /*@Test(description = "Failed user creation - id=00002")
+    @Test(description = "Failed user creation - id=00002")
     public void failedUserCreation() {
         createAccountModal.openTheRegistryModal();
         createAccountModal.noTofillTheRegistryForm();
@@ -42,7 +42,7 @@ public class CreateAccount {
         createAccountModal.openTheRegistryModal();
         createAccountModal.fillTheRegistryForm(name, lastname, email, password, showpass, newsletter);
         Assert.assertEquals(createAccountModal.usedEmail(), EMAIL_MESSAGE_INPUT);
-    }*/
+    }
 
     @DataProvider
     public Object[][] dataProvider() {

@@ -3,16 +3,13 @@ package com.automation.espn.tests;
 import com.automation.espn.pages.LogInComponent;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.DataProvider;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 
 public class LogIn {
     private LogInComponent logInComponent;
     private WebDriver driver;
 
-    @BeforeClass
+    @BeforeMethod
     public void setUp() {
         logInComponent = new LogInComponent(driver);
         driver = logInComponent.chromeDriverConnection();
@@ -40,7 +37,7 @@ public class LogIn {
         };
     }
 
-    @AfterTest
+    @AfterMethod
     public void tearDown() {
         logInComponent.closeBrowser();
     }

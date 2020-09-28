@@ -13,7 +13,7 @@
             </class>
         </classes>
     </test>
-    <!--<test verbose="2" preserve-order="true"
+    <test verbose="2" preserve-order="true"
           name="Login">
         <classes>
             <class name="com.automation.espn.tests.CreateAccount">
@@ -44,5 +44,5 @@
                 </methods>
             </class>
         </classes>
-    </test>-->
+    </test>
 </suite>

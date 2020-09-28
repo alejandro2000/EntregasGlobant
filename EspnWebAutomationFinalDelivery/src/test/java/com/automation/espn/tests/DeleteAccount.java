@@ -3,17 +3,14 @@ package com.automation.espn.tests;
 import com.automation.espn.pages.DeleteAccountModal;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.DataProvider;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 
 public class DeleteAccount {
 
     private DeleteAccountModal deleteAccountModal;
     private WebDriver driver;
 
-    @BeforeClass
+    @BeforeMethod
     public void setUp() {
         deleteAccountModal = new DeleteAccountModal(driver);
         driver = deleteAccountModal.chromeDriverConnection();
@@ -50,7 +47,7 @@ public class DeleteAccount {
         };
     }
 
-    @AfterTest
+    @AfterMethod
     public void tearDown() {
         deleteAccountModal.closeBrowser();
     }
