@@ -91,4 +91,28 @@ public abstract class BaseScreen {
     	return element.isDisplayed();
 	}
 
+    /**
+     * let you check a checkbox.
+     *
+     * @param state : true for checked state and false for nochecked.
+     * @param androidElement : element to be checked.
+     */
+    public void clickOnSavingItems(boolean checkState, AndroidElement check){
+        if (!check.getAttribute("checked").equals("true") && checkState){
+            check.click();
+        }else if (check.getAttribute("checked").equals("true") && !checkState){
+            check.click();
+        }
+    }
+
+    /**
+     * let you check the state of a checkbox.
+     *
+     * @param state : true for checked state and false for nochecked.
+     * @param androidElement : element to be checked.
+     */
+    public boolean returnCheckState(AndroidElement check){
+        return Boolean.parseBoolean(check.getAttribute("checked"));
+    }
+
 }

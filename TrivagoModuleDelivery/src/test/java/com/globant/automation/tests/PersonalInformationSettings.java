@@ -2,6 +2,7 @@ package com.globant.automation.tests;
 
 import com.globant.automation.screens.*;
 import com.globant.automation.utils.tests.BaseMobileTest;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class PersonalInformationSettings extends BaseMobileTest {
@@ -21,5 +22,9 @@ public class PersonalInformationSettings extends BaseMobileTest {
         navigationItemsComponent.clickDynamicElement("Configuración");
         SettingsScreen settingsScreen = navigationItemsComponent.settingsScreen();
         settingsScreen.goIntoPrivacySettingsSection();
+        WorkingWithDataPrivacy workingWithDataPrivacy = settingsScreen.workingWithDataPrivacy();
+        workingWithDataPrivacy.checkDataPrivacyElements(false,false,false);
+        settingsScreen.clickSettingsSection();
+        Assert.assertEquals(workingWithDataPrivacy.checkStateDataPrivacy(false, false, false),true);
     }
 }

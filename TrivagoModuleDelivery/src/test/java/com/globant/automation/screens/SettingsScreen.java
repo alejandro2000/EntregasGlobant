@@ -22,10 +22,18 @@ public class SettingsScreen extends BaseScreen {
         clickDynamicElement("Configurar privacidad de datos");
     }
 
+    public void clickSettingsSection(){
+        clickDynamicElement("Configurar privacidad de datos");
+    }
+
     public void scrollToTextInSettingsSection(String text) {
         String automator = "new UiScrollable(new UiSelector().className(\"android.widget.ScrollView\"))" +
                 ".scrollIntoView(new UiSelector().textContains(\"%s\"))";
         AndroidElement textOnElement = driver.findElementByAndroidUIAutomator(format(automator, text));
         Logger.info(textOnElement.getText());
+    }
+
+    public WorkingWithDataPrivacy workingWithDataPrivacy(){
+        return new WorkingWithDataPrivacy(driver);
     }
 }

@@ -27,7 +27,21 @@ public class WorkingWithDataPrivacy extends BaseScreen {
     @AndroidFindBy(id = "activityDataManagerSaveButton")
     private AndroidElement saveItems;
 
-    private void clickOnSavingItems(){
+    public void checkDataPrivacyElements(boolean appsFlyerState,boolean fireBaseState
+            ,boolean facebookState){
+        clickOnSavingItems(appsFlyerState,appsFlyer);
+        clickOnSavingItems(fireBaseState,fireBase);
+        clickOnSavingItems(facebookState,facebook);
+        saveItems.click();
+    }
 
+    public boolean checkStateDataPrivacy(boolean appsFlyerState,boolean fireBaseState
+            ,boolean facebookState){
+        if(returnCheckState(appsFlyer) == appsFlyerState &&
+                returnCheckState(fireBase) == fireBaseState && returnCheckState(facebook) == facebookState){
+            return true;
+        }else {
+            return false;
+        }
     }
 }

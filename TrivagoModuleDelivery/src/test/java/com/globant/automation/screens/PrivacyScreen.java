@@ -61,6 +61,7 @@ public class PrivacyScreen extends BaseScreen {
 	}
 
 	public void acceptPrivacyTermsButton() {
+		waitForAnElement(driver,acceptPrivacyTermsButton,30);
 		acceptPrivacyTermsButton.click();
 	}
 
