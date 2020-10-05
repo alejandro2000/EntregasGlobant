@@ -1,0 +1,11 @@
+{
+  "deviceName": "emulator-5554",
+  "platformName": "Android",
+  "platformVersion": "7.1.1",
+  "appPackage": "com.trivago",
+  "appActivity": "ft.main.frontend.MainActivity",
+  "noReset": "false",
+  "app": "C:\\Users\\alejoviaja\\Desktop\\globant\\documentacion\\apks\\trivago.apk",
+  "autoGrantPermissions": "true",
+  "appLocale": "{\"language\": \"es\", \"country\": \"CO\"}"
+}
