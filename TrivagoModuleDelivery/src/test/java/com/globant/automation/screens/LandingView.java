@@ -6,6 +6,15 @@ import io.appium.java_client.android.AndroidElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 
 public class LandingView extends BaseScreen {
+    @AndroidFindBy(id = "fragmentHomeLogoImageView")
+    private AndroidElement mainTrivagoLogo;
+    @AndroidFindBy(id = "fragmentHomeExpandedDealformDestinationTextView")
+    private AndroidElement locationTextViewInput;
+    @AndroidFindBy(id = "fragmentHomeExpandedDealformSearchTextView")
+    private AndroidElement loadedMainSearchHotelsButton;
+    @AndroidFindBy(id = "fragmentHotelSearchResultsExpandedDealformCalendarTextView")
+    private AndroidElement rangeDate;
+
     /**
      * Constructor method for standard screen object.
      *
@@ -15,31 +24,22 @@ public class LandingView extends BaseScreen {
         super(pDriver);
     }
 
-
-    @AndroidFindBy(id = "fragmentHomeLogoImageView")
-    private AndroidElement mainTrivagoLogo;
-
-    @AndroidFindBy(id = "fragmentHomeExpandedDealformDestinationTextView")
-    private AndroidElement locationTextViewInput;
-
-    @AndroidFindBy(id = "fragmentHomeExpandedDealformSearchTextView")
-    private AndroidElement loadedMainSearchHotelsButton;
-
-    @AndroidFindBy(id = "fragmentHotelSearchResultsExpandedDealformCalendarTextView")
-    private AndroidElement rangeDate;
-
-
-    public boolean landingTrivagoLogo(){
+    public boolean landingTrivagoLogo() {
         return mainTrivagoLogo.isDisplayed();
     }
 
-    public ListOfTripLocations selectTripInformation(){
-        waitForAnElement(driver,loadedMainSearchHotelsButton,30);
+    /**
+     * wait for the element to be clickable
+     * and click it
+     *
+     */
+    public ListOfTripLocations selectTripInformation() {
+        waitForAnElement(driver, loadedMainSearchHotelsButton, 30);
         locationTextViewInput.click();
         return new ListOfTripLocations(driver);
     }
 
-    public String getSelectedDate(){
+    public String getSelectedDate() {
         return rangeDate.getText();
     }
 

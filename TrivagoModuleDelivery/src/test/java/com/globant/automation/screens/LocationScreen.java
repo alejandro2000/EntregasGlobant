@@ -5,9 +5,6 @@ import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 
-/**
- * Description:
- */
 public class LocationScreen extends BaseScreen {
 
     private static final String COUNTRY_LANGUAGE = "activityPlatformSelectionConfirmButton";
@@ -25,7 +22,8 @@ public class LocationScreen extends BaseScreen {
     }
 
     /**
-     * Click on button.
+     * scroll into location and get into
+     * landing page
      */
     public void selectCountry() {
         scrollToText("Colombia (Español)");
@@ -34,10 +32,9 @@ public class LocationScreen extends BaseScreen {
     }
 
     /**
-     * Returns a SecondScreen after to do something.
+     * Returns a PrivacyScreen after to do something.
      *
-     *
-     * @return SecondScreen
+     * @return PrivacyScreen
      */
     public PrivacyScreen returnPrivacyScreen() {
         return new PrivacyScreen(driver);

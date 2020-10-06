@@ -1,13 +1,22 @@
 package com.globant.automation.tests;
 
 import com.globant.automation.screens.*;
+import com.globant.automation.utils.constants.TestsConstants;
 import com.globant.automation.utils.tests.BaseMobileTest;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class SearchHotels extends BaseMobileTest {
 
-    @Test
+    /**
+     * Search view should appear with the previous selection.
+     * Validate that the text on the input text field should
+     * contain the word “Cartagena” and date range contains
+     * the text “1 de nov. - 5 de nov.”.
+     *
+     * @author Alejandro Taborda Cadavid
+     */
+    @Test(description = "search hotels - id=00002")
     public void searchHotelsDestination() {
         LocationScreen locationScreen = returnLocationScreen();
         locationScreen.selectCountry();
@@ -17,6 +26,6 @@ public class SearchHotels extends BaseMobileTest {
         ListOfTripLocations listOfTripLocations = landingView.selectTripInformation();
         TripScheduleSection tripScheduleSection = listOfTripLocations.selectDestination();
         tripScheduleSection.tripPrograming();
-        Assert.assertEquals(landingView.getSelectedDate(),"1 de nov. - 5 de nov.");
+        Assert.assertEquals(landingView.getSelectedDate(), TestsConstants.DATES);
     }
 }

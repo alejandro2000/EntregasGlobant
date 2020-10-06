@@ -18,7 +18,7 @@ public class NavigationItemsComponent extends BaseScreen {
         return visibilityOfElement(text);
     }
 
-    public SettingsScreen settingsScreen(){
+    public SettingsScreen settingsScreen() {
         return new SettingsScreen(driver);
     }
 }

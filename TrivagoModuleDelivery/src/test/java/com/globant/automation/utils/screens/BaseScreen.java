@@ -85,22 +85,22 @@ public abstract class BaseScreen {
      *
      * @param text : String Text
      */
-    public boolean visibilityOfElement(String text){
-    	String automatorString = "new UiSelector().text(\"%s\")";
-    	AndroidElement element = driver.findElementByAndroidUIAutomator(format(automatorString, text));
-    	return element.isDisplayed();
-	}
+    public boolean visibilityOfElement(String text) {
+        String automatorString = "new UiSelector().text(\"%s\")";
+        AndroidElement element = driver.findElementByAndroidUIAutomator(format(automatorString, text));
+        return element.isDisplayed();
+    }
 
     /**
      * let you check a checkbox.
      *
-     * @param state : true for checked state and false for nochecked.
+     * @param state          : true for checked state and false for nochecked.
      * @param androidElement : element to be checked.
      */
-    public void clickOnSavingItems(boolean checkState, AndroidElement check){
-        if (!check.getAttribute("checked").equals("true") && checkState){
+    public void clickOnSavingItems(boolean checkState, AndroidElement check) {
+        if (!check.getAttribute("checked").equals("true") && checkState) {
             check.click();
-        }else if (check.getAttribute("checked").equals("true") && !checkState){
+        } else if (check.getAttribute("checked").equals("true") && !checkState) {
             check.click();
         }
     }
@@ -108,10 +108,10 @@ public abstract class BaseScreen {
     /**
      * let you check the state of a checkbox.
      *
-     * @param state : true for checked state and false for nochecked.
+     * @param state          : true for checked state and false for nochecked.
      * @param androidElement : element to be checked.
      */
-    public boolean returnCheckState(AndroidElement check){
+    public boolean returnCheckState(AndroidElement check) {
         return Boolean.parseBoolean(check.getAttribute("checked"));
     }
 
