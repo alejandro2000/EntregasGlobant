@@ -14,6 +14,10 @@ public class WorkingWithDataPrivacy extends BaseScreen {
     private AndroidElement facebook;
     @AndroidFindBy(id = "activityDataManagerSaveButton")
     private AndroidElement saveItems;
+    @AndroidFindBy(id = "activityDataManagerTitleTextView")
+    private AndroidElement one;
+    @AndroidFindBy(id = "activityDataManagerLearnMoreTextView")
+    private AndroidElement two;
 
     /**
      * Constructor method for standard screen object.
@@ -24,6 +28,9 @@ public class WorkingWithDataPrivacy extends BaseScreen {
         super(pDriver);
     }
 
+    /**
+     * click all the states according to the given states.
+     */
     public void checkDataPrivacyElements(boolean appsFlyerState, boolean fireBaseState
             , boolean facebookState) {
         clickOnSavingItems(appsFlyerState, appsFlyer);
@@ -32,6 +39,11 @@ public class WorkingWithDataPrivacy extends BaseScreen {
         saveItems.click();
     }
 
+    /**
+     * check the state of the privacy elements according to the given stats.
+     *
+     * returns a boolean state.
+     */
     public boolean checkStateDataPrivacy(boolean appsFlyerState, boolean fireBaseState
             , boolean facebookState) {
         if (returnCheckState(appsFlyer) == appsFlyerState &&
@@ -40,5 +52,12 @@ public class WorkingWithDataPrivacy extends BaseScreen {
         } else {
             return false;
         }
+    }
+
+    public String returnParagraphOne(){
+        return one.getText();
+    }
+    public String returnParagraphTwo(){
+        return two.getText();
     }
 }

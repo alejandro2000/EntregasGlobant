@@ -6,7 +6,7 @@ import io.appium.java_client.android.AndroidElement;
 
 public class NavigationItemsComponent extends BaseScreen {
     /**
-     * Constructor method for standard screen object.
+     * Constructor method for standard NavigationItemsComponent object.
      *
      * @param pDriver : AndroidDriver
      */

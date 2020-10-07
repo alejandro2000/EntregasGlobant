@@ -5,7 +5,7 @@
   "appPackage": "com.trivago",
   "appActivity": "ft.main.frontend.MainActivity",
   "noReset": "false",
-  "app": "C:\\Users\\alejoviaja\\Desktop\\globant\\documentacion\\apks\\trivago.apk",
+  "app": "C:\\Users\\RYZEN\\Downloads\\trivago.apk",
   "autoGrantPermissions": "true",
   "appLocale": "{\"language\": \"es\", \"country\": \"CO\"}"
 }

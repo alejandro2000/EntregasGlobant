@@ -25,7 +25,7 @@ public class NavigationBar extends BaseMobileTest {
         privacyScreen.acceptPrivacyTermsButton();
         NavigationItemsComponent navigationItemsComponent = privacyScreen.returnNavigationItemsComponent();
         Assert.assertEquals(navigationItemsComponent.navigationBar(TestsConstants.SEARCH), true);
-        Assert.assertEquals(navigationItemsComponent.navigationBar(TestsConstants.SORPRISE), true);
+        Assert.assertEquals(navigationItemsComponent.navigationBar(TestsConstants.SURPRISE), true);
         Assert.assertEquals(navigationItemsComponent.navigationBar(TestsConstants.FAVORITES), true);
         Assert.assertEquals(navigationItemsComponent.navigationBar(TestsConstants.CONFIGURATION), true);
     }

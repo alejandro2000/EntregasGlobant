@@ -7,6 +7,8 @@ import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
+import static com.globant.automation.utils.constants.TestsConstants.*;
+
 public class PersonalInformationSettings extends BaseMobileTest {
 
     /**
@@ -30,20 +32,22 @@ public class PersonalInformationSettings extends BaseMobileTest {
         SettingsScreen settingsScreen = navigationItemsComponent.settingsScreen();
         settingsScreen.goIntoPrivacySettingsSection();
         WorkingWithDataPrivacy workingWithDataPrivacy = settingsScreen.workingWithDataPrivacy();
-        workingWithDataPrivacy.checkDataPrivacyElements(appsFlyerState, appsFlyerState, appsFlyerState);
+        workingWithDataPrivacy.checkDataPrivacyElements(appsFlyerState, fireBaseState, facebookState);
         settingsScreen.clickSettingsSection();
-        Assert.assertEquals(workingWithDataPrivacy.checkStateDataPrivacy(appsFlyerState, appsFlyerState,
-                appsFlyerState), true);
+        Assert.assertEquals(workingWithDataPrivacy.checkStateDataPrivacy(appsFlyerState, fireBaseState,
+                facebookState), true);
+        Assert.assertEquals(workingWithDataPrivacy.returnParagraphOne(), FIRST_PARAGRAPH);
+        Assert.assertEquals(workingWithDataPrivacy.returnParagraphTwo(), SECOND_PARAGRAPH);
+        Assert.assertEquals(workingWithDataPrivacy.visibilityOfElement(PRIVACY_TITLE_SCREEN),true);
     }
 
     @DataProvider
     public Object[][] dataProvider() {
         return new Object[][]{
                 new Object[]{true, true, true},
+                new Object[]{false, true, true},
+                new Object[]{true, true, false},
                 new Object[]{false, false, false},
-                new Object[]{true, false, false},
-                new Object[]{false, true, false},
-                new Object[]{false, false, true},
         };
     }
 }

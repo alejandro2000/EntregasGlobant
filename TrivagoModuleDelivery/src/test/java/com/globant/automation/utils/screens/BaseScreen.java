@@ -60,10 +60,11 @@ public abstract class BaseScreen {
     /**
      * Scroll to the text attribute received by parameter.
      *
-     * @param text : String
+     * @param text : text do you want to scroll to
+     *
      */
     public void scrollToText(String text) {
-        String automator = "new UiScrollable(new UiSelector()).scrollIntoView(new UiSelector().textContains(\"%s\"))";
+        String automator = "new UiScrollable(new UiSelector().className(\"android.view.ViewGroup\")).scrollIntoView(new UiSelector().textContains(\"%s\"))";
         AndroidElement textOnElement = driver.findElementByAndroidUIAutomator(format(automator, text));
         Logger.info(textOnElement.getText());
     }
@@ -71,7 +72,7 @@ public abstract class BaseScreen {
     /**
      * Scroll to the text attribute received by parameter in a date picker.
      *
-     * @param text : String
+     * @param text : text do you want to click
      */
     public void clickDynamicElement(String text) {
         String automator = "new UiSelector().text(\"%s\")";
@@ -83,7 +84,7 @@ public abstract class BaseScreen {
     /**
      * let you know if some element is visible.
      *
-     * @param text : String Text
+     * @param text : text of the alament do you want to ask for
      */
     public boolean visibilityOfElement(String text) {
         String automatorString = "new UiSelector().text(\"%s\")";
@@ -94,8 +95,8 @@ public abstract class BaseScreen {
     /**
      * let you check a checkbox.
      *
-     * @param state          : true for checked state and false for nochecked.
-     * @param androidElement : element to be checked.
+     * @param check          : true for checked state and false for nochecked.
+     * @param checkState : element to be checked.
      */
     public void clickOnSavingItems(boolean checkState, AndroidElement check) {
         if (!check.getAttribute("checked").equals("true") && checkState) {
@@ -108,8 +109,7 @@ public abstract class BaseScreen {
     /**
      * let you check the state of a checkbox.
      *
-     * @param state          : true for checked state and false for nochecked.
-     * @param androidElement : element to be checked.
+     * @param check : true for checked state and false for nochecked.
      */
     public boolean returnCheckState(AndroidElement check) {
         return Boolean.parseBoolean(check.getAttribute("checked"));

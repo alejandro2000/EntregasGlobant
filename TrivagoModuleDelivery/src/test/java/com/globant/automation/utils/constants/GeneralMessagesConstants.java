@@ -2,12 +2,12 @@ package com.globant.automation.utils.constants;
 
 public class GeneralMessagesConstants {
 
-    public static final String PRIVACY_TITLE = "Your data privacy";
-    public static final String PRIVACY_FIRST_PARAGRAPH = "We believe you deserve the best possible experience on " +
-            "trivago.";
-    public static final String PRIVACY_SECOND_PARAGRAPH = "That’s why we and our third-party partner sites share and " +
-            "collect data and use cookies and other tech for site function, tracking, analytics, and personalized " +
-            "advertising both on and off trivago.";
-    public static final String PRIVACY_THIRD_PARAGRAPH = "If that’s fine for you, confirm your consent by tapping " +
-            "“Accept all” below or by customizing your preferences in your data privacy settings.";
+    public static final String PRIVACY_TITLE = "Privacidad de datos";
+    public static final String PRIVACY_FIRST_PARAGRAPH = "Creemos que mereces la mejor experiencia posible" +
+            " cuando usas trivago.";
+    public static final String PRIVACY_SECOND_PARAGRAPH = "Por ello, nosotros y los sitios web de nuestros socios " +
+            "externos compartimos y recopilamos datos, y usamos cookies y otras tecnologías para funcionamiento del " +
+            "sitio, seguimiento, análisis y publicidad personalizada dentro y fuera de trivago.";
+    public static final String PRIVACY_THIRD_PARAGRAPH = "Si estás de acuerdo, confirma tu consentimiento haciendo " +
+            "clic en “Aceptar todo” o personaliza tus preferencias en la configuración de privacidad de tus datos.";
 }
