@@ -1,23 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="All Test Suite">
-    <test verbose="2" preserve-order="true" name="C:/Users/RYZEN/Desktop/EntregasGlobant/TrivagoModuleDelivery">
+    <test verbose="1" preserve-order="true" name="C:/Users/RYZEN/Desktop/EntregasGlobant/TrivagoModuleDelivery">
         <classes>
             <class name="com.globant.automation.tests.DataPrivacy">
                 <methods>
                     <include name="dataPrivacySelection"/>
                 </methods>
             </class>
+        </classes>
+    </test>
+    <test verbose="2" preserve-order="true" name="C:/Users/RYZEN/Desktop/EntregasGlobant/TrivagoModuleDelivery">
+        <classes>
             <class name="com.globant.automation.tests.NavigationBar">
                 <methods>
                     <include name="navigationBar"/>
                 </methods>
             </class>
+        </classes>
+    </test>
+    <test verbose="3" preserve-order="true" name="C:/Users/RYZEN/Desktop/EntregasGlobant/TrivagoModuleDelivery">
+        <classes>
             <class name="com.globant.automation.tests.PersonalInformationSettings">
                 <methods>
                     <include name="dataPrivacySettings"/>
                 </methods>
             </class>
+        </classes>
+    </test>
+    <test verbose="4" preserve-order="true" name="C:/Users/RYZEN/Desktop/EntregasGlobant/TrivagoModuleDelivery">
+        <classes>
             <class name="com.globant.automation.tests.SearchHotels">
                 <methods>
                     <include name="searchHotelsDestination"/>
