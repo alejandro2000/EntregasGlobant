@@ -1,4 +1,4 @@
-package rest.assured.tests.jira;
+package rest.assured.tests.mockapi;
 
 /**
  * BaseClass to consume the http essential
@@ -6,5 +6,5 @@ package rest.assured.tests.jira;
  *
  * @author Alejandro Taborda Cadavid
  */
-public class AutoIncrementalBugIdTest {
+public class DuplicateEmailResponseTest {
 }
