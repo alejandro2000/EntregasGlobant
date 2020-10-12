@@ -17,7 +17,7 @@ import static io.restassured.RestAssured.given;
 public class BaseService {
 
     private String baseUrl;
-    private Response response;
+    public Response response;
 
     /**
      * This is the constructor of the class
@@ -37,7 +37,7 @@ public class BaseService {
      * @param resource the resource i want to get from the api.
      * @return response
      */
-    private Response jsonResponseGet(String resource) {
+    public Response jsonResponseGet(String resource) {
         response = given().get(baseUrl + resource);
         return response;
     }
@@ -48,7 +48,7 @@ public class BaseService {
      *
      * @return the status code
      */
-    private int getRequestStatusCode() {
+    public int getRequestStatusCode() {
         return response.getStatusCode();
     }
 
@@ -60,7 +60,7 @@ public class BaseService {
      * @return JsonPath is the object that will help
      * us create new pojos.
      */
-    private JsonPath jsonResponseGetToObject(String resource) {
+    public JsonPath jsonResponseGetToObject(String resource) {
         return given().get(baseUrl + resource).jsonPath();
     }
 
@@ -71,7 +71,7 @@ public class BaseService {
      * @param resource
      * @return
      */
-    private String getPrettyJsonResponse(String resource) {
+    public String getPrettyJsonResponse(String resource) {
         return given().get(baseUrl + resource).jsonPath().prettyPrint();
     }
 
@@ -83,7 +83,7 @@ public class BaseService {
      * @param pojo     object we want to send
      * @return the response
      */
-    private Response jsonResponsePost(String resource, Object pojo) {
+    public Response jsonResponsePost(String resource, Object pojo) {
         response = RestAssured.given().contentType(ApiConstants.CONTENT_TYPE)
                 .body(pojo).when().post(baseUrl + resource);
         return response;
