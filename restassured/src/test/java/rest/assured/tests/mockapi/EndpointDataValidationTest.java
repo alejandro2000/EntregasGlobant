@@ -1,7 +1,6 @@
 package rest.assured.tests.mockapi;
 
 import org.testng.Assert;
-import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import rest.assured.tasks.mockapi.EndpointDataValidationTask;
@@ -27,8 +26,8 @@ public class EndpointDataValidationTest {
 
     @Test(description = "Verify That the endPoint is empty - id=00001")
     public void testEndpointDataValidation() {
-        Assert.assertEquals(endpointDataValidationTask.consultApiAvailability(TRANSACTION_SERVICE),STATUS_CODE);
+        Assert.assertEquals(endpointDataValidationTask.consultApiAvailability(TRANSACTION_SERVICE), STATUS_CODE);
         endpointDataValidationTask.clearApiData();
-        Assert.assertEquals(endpointDataValidationTask.numberOfApiData(),RECORDS_AMOUNT);
+        Assert.assertEquals(endpointDataValidationTask.numberOfApiData(), RECORDS_AMOUNT);
     }
 }

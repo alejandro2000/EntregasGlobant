@@ -1,13 +1,11 @@
 package rest.assured.tasks.jira;
 
 import rest.assured.baseservice.BaseService;
-
 /**
- * Class to validate the incremental bug id.
- *
+ * Class to populate jira bug payload.
  * @author Alejandro Taborda Cadavid
  */
-public class AutoIncrementalBugIdTask extends BaseService {
+public class PopulateJiraBug extends BaseService {
     /**
      * This is the constructor of the class
      * and it needs the base url depending on
@@ -15,7 +13,7 @@ public class AutoIncrementalBugIdTask extends BaseService {
      *
      * @param baseUrl
      */
-    public AutoIncrementalBugIdTask(String baseUrl) {
+    public PopulateJiraBug(String baseUrl) {
         super(baseUrl);
     }
 }

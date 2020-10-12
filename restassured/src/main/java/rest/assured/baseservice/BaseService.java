@@ -2,8 +2,10 @@ package rest.assured.baseservice;
 
 
 import io.restassured.RestAssured;
+import io.restassured.http.Headers;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
+import io.restassured.specification.RequestSpecification;
 import rest.assured.utils.constants.ApiConstants;
 
 import java.util.List;
@@ -73,7 +75,7 @@ public class BaseService {
      * @return
      */
     public String getPrettyJsonResponse(String resource) {
-        return given().get(baseUrl + resource).jsonPath().prettyPrint();
+        return given().get(baseUrl + resource).jsonPath().prettify();
     }
 
     /**
@@ -86,6 +88,12 @@ public class BaseService {
      */
     public Response jsonResponsePost(String resource, Object pojo) {
         response = RestAssured.given().contentType(ApiConstants.CONTENT_TYPE)
+                .body(pojo).when().post(baseUrl + resource);
+        return response;
+    }
+
+    public Response jsonResponsePost(String resource, Object pojo,Headers headers) {
+        response = RestAssured.given().contentType(ApiConstants.CONTENT_TYPE).headers(headers)
                 .body(pojo).when().post(baseUrl + resource);
         return response;
     }
