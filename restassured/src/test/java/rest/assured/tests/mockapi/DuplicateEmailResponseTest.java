@@ -22,8 +22,4 @@ public class DuplicateEmailResponseTest {
 
     }
 
-    @AfterMethod
-    public void tearDown() {
-
-    }
 }

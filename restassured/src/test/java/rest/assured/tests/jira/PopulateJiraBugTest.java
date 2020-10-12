@@ -19,9 +19,4 @@ public class PopulateJiraBugTest {
     public void testPopulateJiraBug() {
 
     }
-
-    @AfterMethod
-    public void tearDown() {
-
-    }
 }

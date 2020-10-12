@@ -22,8 +22,4 @@ public class CreateJiraBugTest {
 
     }
 
-    @AfterMethod
-    public void tearDown() {
-
-    }
 }

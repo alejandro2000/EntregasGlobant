@@ -21,9 +21,4 @@ public class CreateApiRecordsTests {
     public void testCreateApiRecords() {
 
     }
-
-    @AfterMethod
-    public void tearDown() {
-
-    }
 }

@@ -21,9 +21,4 @@ public class AutoIncrementalBugIdTest {
     public void testAutoIncrementalBug() {
 
     }
-
-    @AfterMethod
-    public void tearDown() {
-
-    }
 }

@@ -119,4 +119,20 @@ public class BankTransactionPojo {
     public void setTelephone(String telephone) {
         this.telephone = telephone;
     }
+
+    @Override
+    public String toString() {
+        return "BankTransactionPojo{" +
+                "id='" + id + '\'' +
+                ", name='" + name + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", accountNumber='" + accountNumber + '\'' +
+                ", amount='" + amount + '\'' +
+                ", transactionType='" + transactionType + '\'' +
+                ", email='" + email + '\'' +
+                ", active=" + active +
+                ", country='" + country + '\'' +
+                ", telephone='" + telephone + '\'' +
+                '}';
+    }
 }

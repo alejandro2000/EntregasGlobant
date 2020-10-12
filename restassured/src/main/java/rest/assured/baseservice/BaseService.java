@@ -6,6 +6,8 @@ import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import rest.assured.utils.constants.ApiConstants;
 
+import java.util.List;
+
 import static io.restassured.RestAssured.given;
 
 /**
@@ -43,6 +45,17 @@ public class BaseService {
     }
 
     /**
+     * This method returns the JsonPath of any
+     * get http request
+     *
+     * @param resource the resource i want to get from the api.
+     * @return JsonPath
+     */
+    public JsonPath jsonResponseGetObject(String resource) {
+        return given().get(baseUrl + resource).jsonPath();
+    }
+
+    /**
      * Method that help us know
      * the status of an api call
      *
@@ -50,18 +63,6 @@ public class BaseService {
      */
     public int getRequestStatusCode() {
         return response.getStatusCode();
-    }
-
-    /**
-     * This method help to create an http get request
-     * and return and object to manipulate.
-     *
-     * @param resource
-     * @return JsonPath is the object that will help
-     * us create new pojos.
-     */
-    public JsonPath jsonResponseGetToObject(String resource) {
-        return given().get(baseUrl + resource).jsonPath();
     }
 
     /**
@@ -87,6 +88,11 @@ public class BaseService {
         response = RestAssured.given().contentType(ApiConstants.CONTENT_TYPE)
                 .body(pojo).when().post(baseUrl + resource);
         return response;
+    }
+
+    public int consultApiAvailability(String resource){
+        jsonResponseGet(resource);
+        return getRequestStatusCode();
     }
 
 
