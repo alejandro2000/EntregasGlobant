@@ -12,7 +12,7 @@ in this case we download or clone the repository with the branch 'feature/005'.
 Note : If you want to run a specific test we just have to modify the pom.xml file.
 
 Credentials :
-* Jira -> email: globalprogramer@gmail.com pass:3N"x?z%K"
+* Jira -> email: globalprogramer@gmail.com pass:3N"x?z%K
 
 by : Alejandro Taborda Cadavid
 2020

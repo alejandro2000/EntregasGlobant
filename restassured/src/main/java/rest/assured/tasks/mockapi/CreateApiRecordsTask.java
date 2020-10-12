@@ -28,6 +28,11 @@ public class CreateApiRecordsTask extends BaseService {
         super(baseUrl);
     }
 
+    /**
+     * Create a new record only if there is not in the data base.
+     *
+     * @param numberOfRecords
+     */
     public void createRecordsInformation(int numberOfRecords) {
         BankTransactionPojo bankTransactionPojo;
         for (int i = 0; i < numberOfRecords; i++) {

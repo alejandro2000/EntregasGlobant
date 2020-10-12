@@ -22,6 +22,12 @@ public class AutoIncrementalBugIdTask extends BaseService {
         super(baseUrl);
     }
 
+    /**
+     * consul an item with a get request
+     *
+     * @param itemKey the item we want to consult
+     * @return value id of the key api response
+     */
     public String consultLastItemId(String itemKey) {
         return jsonResponseGet(String.format(JIRA_CONSULT_SERVICE, itemKey),
                 JiraDataManipulation.settingUpJiraHeaders()).jsonPath().get("key")

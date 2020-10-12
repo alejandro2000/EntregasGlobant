@@ -30,6 +30,15 @@ public class CreateJiraBugTask extends BaseService {
         super(baseUrl);
     }
 
+    /**
+     * post a new item and save the consecutive.
+     *
+     * @param resource
+     * @param pojo
+     * @param headers
+     * @return
+     * @throws IOException
+     */
     public Response jsonResponsePost(String resource, Object pojo, Headers headers) throws IOException {
         response = RestAssured.given().contentType(ApiConstants.CONTENT_TYPE).headers(headers)
                 .body(pojo).when().post(baseUrl + resource);
@@ -39,6 +48,15 @@ public class CreateJiraBugTask extends BaseService {
         return response;
     }
 
+    /**
+     * create a new Jira bug.
+     *
+     * @param projectKey
+     * @param title
+     * @param description
+     * @param itemType
+     * @throws IOException
+     */
     public void createAJiraBug(String projectKey, String title,
                                String description, String itemType) throws IOException {
         jsonResponsePost(JIRA_INSERT_SERVICE,

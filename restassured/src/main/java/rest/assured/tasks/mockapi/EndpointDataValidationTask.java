@@ -26,15 +26,29 @@ public class EndpointDataValidationTask extends BaseService {
         super(baseUrl);
     }
 
+    /**
+     * clear all the data in the database
+     */
     public void clearApiData() {
         jsonResponseGetObject(TRANSACTION_SERVICE).getList("", BankTransactionPojo.class)
                 .forEach(obj -> eraseApiData(TRANSACTION_SERVICE, obj.getId()));
     }
 
+    /**
+     * shows the quantity of items
+     *
+     * @return number of items in the database
+     */
     public int numberOfApiData() {
         return jsonResponseGetObject(TRANSACTION_SERVICE).getList("", BankTransactionPojo.class).size();
     }
 
+    /**
+     * send a delete request
+     *
+     * @param resource service of the api
+     * @param id       item to delete
+     */
     private void eraseApiData(String resource, String id) {
         given().delete(MOCK_API_BASE_URL + resource + id);
     }

@@ -29,7 +29,9 @@ public class DuplicateEmailResponseTask extends BaseService {
         super(baseUrl);
     }
 
-
+    /**
+     * create a record and if it is taken, it show an error.
+     */
     public void createANewRecordWithDataTaken() {
         BankTransactionPojo bankTransactionPojo = jsonResponseGetObject(TRANSACTION_SERVICE)
                 .getList("", BankTransactionPojo.class).get(0);

@@ -12,6 +12,15 @@ import static rest.assured.utils.constants.ApiConstants.JIRA_ITEM_STRUCTURE;
 
 public class JiraDataManipulation {
 
+    /**
+     * creates a pojo using a json response
+     *
+     * @param projectKey
+     * @param title
+     * @param description
+     * @param itemType
+     * @return
+     */
     public static ItemTemplate objectCreation(String projectKey, String title,
                                               String description, String itemType) {
         Gson gson = new Gson();
@@ -20,6 +29,11 @@ public class JiraDataManipulation {
         return itemTemplate;
     }
 
+    /**
+     * setting up all the configuration headers
+     *
+     * @return
+     */
     public static Headers settingUpJiraHeaders() {
         Header h1 = new Header("Accept", "application/json");
         Header h2 = new Header("Content-Type", "application/json");
