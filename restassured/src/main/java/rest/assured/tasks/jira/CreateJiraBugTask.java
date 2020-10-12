@@ -1,12 +1,14 @@
 package rest.assured.tasks.jira;
 
-import io.restassured.http.Header;
+import io.restassured.RestAssured;
 import io.restassured.http.Headers;
+import io.restassured.response.Response;
 import rest.assured.baseservice.BaseService;
+import rest.assured.utils.DataValidation;
 import rest.assured.utils.JiraDataManipulation;
+import rest.assured.utils.constants.ApiConstants;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.io.IOException;
 
 import static rest.assured.utils.constants.ApiConstants.JIRA_INSERT_SERVICE;
 
@@ -28,10 +30,19 @@ public class CreateJiraBugTask extends BaseService {
         super(baseUrl);
     }
 
-    public void createAJiraBug(String projectKey,String title,
-                               String description,String itemType) {
+    public Response jsonResponsePost(String resource, Object pojo, Headers headers) throws IOException {
+        response = RestAssured.given().contentType(ApiConstants.CONTENT_TYPE).headers(headers)
+                .body(pojo).when().post(baseUrl + resource);
+        String itemId = response.jsonPath().get("key")
+                .toString().replaceAll("\\D+", "");
+        DataValidation.storeDataIntoPropertiesFile(itemId);
+        return response;
+    }
+
+    public void createAJiraBug(String projectKey, String title,
+                               String description, String itemType) throws IOException {
         jsonResponsePost(JIRA_INSERT_SERVICE,
-                JiraDataManipulation.objectCreation(projectKey,title,description,itemType)
-                ,JiraDataManipulation.settingUpJiraHeaders());
+                JiraDataManipulation.objectCreation(projectKey, title, description, itemType)
+                , JiraDataManipulation.settingUpJiraHeaders());
     }
 }

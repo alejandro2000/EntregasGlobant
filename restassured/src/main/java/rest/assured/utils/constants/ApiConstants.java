@@ -12,6 +12,7 @@ public class ApiConstants {
     public static final String JIRA_BASE_URL = "https://team-1602453707608.atlassian.net/rest/api/";
     public static final String TRANSACTION_SERVICE = "BankTransactions/";
     public static final String JIRA_INSERT_SERVICE = "3/issue";
+    public static final String JIRA_CONSULT_SERVICE = "3/issue/TES-%s";
     public static final int STATUS_CODE = 200;
     public static final int JIRA_STATUS_CODE = 201;
 

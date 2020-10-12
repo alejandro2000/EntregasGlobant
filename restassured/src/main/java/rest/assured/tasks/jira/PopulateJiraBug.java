@@ -1,8 +1,10 @@
 package rest.assured.tasks.jira;
 
 import rest.assured.baseservice.BaseService;
+
 /**
  * Class to populate jira bug payload.
+ *
  * @author Alejandro Taborda Cadavid
  */
 public class PopulateJiraBug extends BaseService {

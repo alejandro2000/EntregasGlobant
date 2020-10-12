@@ -3,6 +3,7 @@ package rest.assured.utils;
 import com.github.javafaker.Faker;
 import rest.assured.pojos.BankTransactionPojo;
 
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -35,12 +36,34 @@ public class DataValidation {
         return jsonResponse.contains(email);
     }
 
-    public static void storeDataIntoPropertiesFile(String data) throws FileNotFoundException, IOException {
+    public static void storeDataIntoPropertiesFile(String data) throws IOException {
         Properties props = new Properties();
         props.put("lastId", data);
         String path = "jiraIncrementalId.properties";
         FileOutputStream outputStrem = null;
         outputStrem = new FileOutputStream(path);
-        props.store(outputStrem,"Information about Jira items");
+        props.store(outputStrem, "Information about Jira items");
+    }
+
+    public static String readDataFromProperties(String valueToRead) throws IOException {
+        Properties prop = readPropertiesFile("jiraIncrementalId.properties");
+        return prop.getProperty(valueToRead);
+    }
+
+    public static Properties readPropertiesFile(String fileName) throws IOException {
+        FileInputStream fis = null;
+        Properties prop = null;
+        try {
+            fis = new FileInputStream(fileName);
+            prop = new Properties();
+            prop.load(fis);
+        } catch (FileNotFoundException fnfe) {
+            fnfe.printStackTrace();
+        } catch (IOException ioe) {
+            ioe.printStackTrace();
+        } finally {
+            fis.close();
+        }
+        return prop;
     }
 }

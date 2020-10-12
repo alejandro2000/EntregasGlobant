@@ -5,10 +5,7 @@ import io.restassured.RestAssured;
 import io.restassured.http.Headers;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
-import io.restassured.specification.RequestSpecification;
 import rest.assured.utils.constants.ApiConstants;
-
-import java.util.List;
 
 import static io.restassured.RestAssured.given;
 
@@ -20,7 +17,7 @@ import static io.restassured.RestAssured.given;
  */
 public class BaseService {
 
-    private String baseUrl;
+    public String baseUrl;
     public Response response;
 
     /**
@@ -43,6 +40,11 @@ public class BaseService {
      */
     public Response jsonResponseGet(String resource) {
         response = given().get(baseUrl + resource);
+        return response;
+    }
+
+    public Response jsonResponseGet(String resource, Headers headers) {
+        response = given().headers(headers).get(baseUrl + resource);
         return response;
     }
 
@@ -92,13 +94,7 @@ public class BaseService {
         return response;
     }
 
-    public Response jsonResponsePost(String resource, Object pojo,Headers headers) {
-        response = RestAssured.given().contentType(ApiConstants.CONTENT_TYPE).headers(headers)
-                .body(pojo).when().post(baseUrl + resource);
-        return response;
-    }
-
-    public int consultApiAvailability(String resource){
+    public int consultApiAvailability(String resource) {
         jsonResponseGet(resource);
         return getRequestStatusCode();
     }
