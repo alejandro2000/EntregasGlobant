@@ -2,9 +2,9 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="All Test Suite">
     <test verbose="1" preserve-order="true"
-          name="/Users/alejandrotaborda/Documents/documentation/EntregasGlobant/restassured">
+          name="EndpointDataValidationTest">
         <classes>
-            <class name="rest.assured.tests.jira.AutoIncrementalBugIdTest">
+            <class name="rest.assured.tests.mockapi.EndpointDataValidationTest">
                 <methods>
                     <include name="testEndpointDataValidation"/>
                 </methods>
@@ -12,9 +12,9 @@
         </classes>
     </test>
     <test verbose="2" preserve-order="true"
-          name="/Users/alejandrotaborda/Documents/documentation/EntregasGlobant/restassured">
+          name="CreateApiRecordsTests">
         <classes>
-            <class name="rest.assured.tests.jira.CreateJiraBugTest">
+            <class name="rest.assured.tests.mockapi.CreateApiRecordsTests">
                 <methods>
                     <include name="testCreateApiRecords"/>
                 </methods>
@@ -22,9 +22,9 @@
         </classes>
     </test>
     <test verbose="3" preserve-order="true"
-          name="/Users/alejandrotaborda/Documents/documentation/EntregasGlobant/restassured">
+          name="DuplicateEmailResponseTest">
         <classes>
-            <class name="rest.assured.tests.jira.PopulateJiraBugTest">
+            <class name="rest.assured.tests.mockapi.DuplicateEmailResponseTest">
                 <methods>
                     <include name="testDuplicateEmailResponse"/>
                 </methods>
@@ -32,19 +32,19 @@
         </classes>
     </test>
     <test verbose="4" preserve-order="true"
-          name="/Users/alejandrotaborda/Documents/documentation/EntregasGlobant/restassured">
+          name="CreateJiraBugTest">
         <classes>
-            <class name="rest.assured.tests.mockapi.CreateApiRecordsTests">
+            <class name="rest.assured.tests.jira.CreateJiraBugTest">
                 <methods>
-                    <include name="testPopulateJiraBug"/>
+                    <include name="testCreateJiraBug"/>
                 </methods>
             </class>
         </classes>
     </test>
     <test verbose="5" preserve-order="true"
-          name="/Users/alejandrotaborda/Documents/documentation/EntregasGlobant/restassured">
+          name="AutoIncrementalBugIdTest">
         <classes>
-            <class name="rest.assured.tests.mockapi.DuplicateEmailResponseTest">
+            <class name="rest.assured.tests.jira.AutoIncrementalBugIdTest">
                 <methods>
                     <include name="testAutoIncrementalBug"/>
                 </methods>
@@ -52,9 +52,9 @@
         </classes>
     </test>
     <test verbose="6" preserve-order="true"
-          name="/Users/alejandrotaborda/Documents/documentation/EntregasGlobant/restassured">
+          name="PopulateJiraBugTest">
         <classes>
-            <class name="rest.assured.tests.mockapi.EndpointDataValidationTest">
+            <class name="rest.assured.tests.jira.PopulateJiraBugTest">
                 <methods>
                     <include name="testPopulateJiraBug"/>
                 </methods>
