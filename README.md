@@ -9,7 +9,7 @@ in this case we download or clone the repository with the branch 'feature/005'.
 
 3th step -> Run the command 'mvn clean verify' to run all the contained tests.
 
-Note : If you want to run a specific test we just have to modify the pom.xml file.
+Note : If you want to run a specific test we just have to modify the testng.xml file.
 
 Credentials :
 * Jira -> email: globalprogramer@gmail.com pass:3N"x?z%K
