@@ -1,6 +1,5 @@
-package com.globant.automation.pages;
+package com.globant.automation.pages.booking;
 
-import com.globant.automation.ui.ListOfHotelsUi;
 import com.globant.automation.utils.constants.InfoValidationData;
 import com.globant.automation.utils.pages.BasePage;
 import org.openqa.selenium.By;

@@ -1,14 +1,14 @@
 package com.globant.automation.tests;
 
-import com.globant.automation.pages.*;
+import com.globant.automation.pages.booking.*;
 import com.globant.automation.utils.constants.InfoValidationData;
 import com.globant.automation.utils.tests.BaseTest;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-import static com.globant.automation.utils.DataManupulation.concatenateNameAndLastName;
 import static com.globant.automation.utils.DataManupulation.addFinalZeros;
+import static com.globant.automation.utils.DataManupulation.concatenateNameAndLastName;
 import static com.globant.automation.utils.constants.TestsConstants.WEBSITE;
 
 public class BookingTest extends BaseTest {
@@ -22,9 +22,7 @@ public class BookingTest extends BaseTest {
      * -> CheckIn and CheckOut visible.
      */
     @Test(description = "Booking to validate data integrity id=00001", dataProvider = "dataProvider")
-    public void bookingToLocation(String location, int adults, int children, int bedrooms, String childAge
-            , String bookerName,String bookerLastName, String bookerEmail, String originalLocation, String cc,
-                                String cvc,String phone) {
+    public void bookingToLocation(String location, int adults, int children, int bedrooms, String childAge) {
         BookingTopMenuPage bookingTopMenuPage = returnBookingTopMenuPage();
         bookingTopMenuPage.openTheWebsite(WEBSITE);
         bookingTopMenuPage.addDestination(location);
@@ -52,8 +50,7 @@ public class BookingTest extends BaseTest {
      */
     @Test(description = "Booking to a destination filling until the last form id=00002", dataProvider = "dataProvider")
     public void completeBooking(String location, int adults, int children, int bedrooms, String childAge
-            , String bookerName,String bookerLastName, String bookerEmail, String originalLocation, String cc,
-                                String cvc,String phone) {
+            , String bookerName, String bookerLastName, String bookerEmail, String cc, String cvc, String phone) {
         BookingTopMenuPage bookingTopMenuPage = returnBookingTopMenuPage();
         bookingTopMenuPage.openTheWebsite(WEBSITE);
         bookingTopMenuPage.addDestination(location);
@@ -65,22 +62,22 @@ public class BookingTest extends BaseTest {
         listOfHotelsPage.selectHotelCard();
         HotelDetailPage hotelDetailPage = listOfHotelsPage.selectHotelCard();
         FinalStepsGeneralData finalStepsGeneralData = hotelDetailPage.selectBedRoomsAmount(bedrooms);
-        finalStepsGeneralData.fillPersonalData(bookerName,bookerLastName,bookerEmail);
+        finalStepsGeneralData.fillPersonalData(bookerName, bookerLastName, bookerEmail);
         FinalStepsLastInfo finalStepsLastInfo = finalStepsGeneralData.openFinalForm();
-        finalStepsLastInfo.fillPersonalVulnerableInformation(cc,cvc,phone);
-        Assert.assertEquals(finalStepsLastInfo.getHotelTitle(),InfoValidationData.HOTEL_TITLE);
-        Assert.assertEquals(finalStepsLastInfo.getHotelPrice(),InfoValidationData.HOTEL_PRICE);
+        finalStepsLastInfo.fillPersonalVulnerableInformation(cc, cvc, phone);
+        Assert.assertEquals(finalStepsLastInfo.getHotelTitle(), InfoValidationData.HOTEL_TITLE);
+        Assert.assertEquals(finalStepsLastInfo.getHotelPrice(), InfoValidationData.HOTEL_PRICE);
         Assert.assertEquals(finalStepsLastInfo.getHotelScore(), addFinalZeros(InfoValidationData.HOTEL_SCORE));
         Assert.assertEquals(finalStepsLastInfo.getBookerName(),
-                concatenateNameAndLastName(bookerName,bookerLastName));
-        Assert.assertEquals(finalStepsLastInfo.getBookerEmail(),bookerEmail);
+                concatenateNameAndLastName(bookerName, bookerLastName));
+        Assert.assertEquals(finalStepsLastInfo.getBookerEmail(), bookerEmail);
     }
 
     @DataProvider
     public Object[][] dataProvider() {
         return new Object[][]{
                 new Object[]{"Bogotá, Colombia", 3, 1, 1, "9 años", "Alejandro", "Taborda", "Alejandro" +
-                        ".tabordacadavid@gmail.com", "Colombia", "3431 321850 02752", "1234","3006591342"}
+                        ".tabordacadavid@gmail.com", "Colombia", "3431 321850 02752", "1234", "3006591342"}
         };
     }
 

@@ -1,4 +1,4 @@
-package com.globant.automation.pages;
+package com.globant.automation.pages.booking;
 
 import com.globant.automation.utils.DataManupulation;
 import com.globant.automation.utils.pages.BasePage;

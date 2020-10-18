@@ -1,6 +1,6 @@
 package com.globant.automation.utils.tests;
 
-import com.globant.automation.pages.BookingTopMenuPage;
+import com.globant.automation.pages.booking.BookingTopMenuPage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterMethod;
@@ -13,7 +13,7 @@ public abstract class BaseTest {
     public static WebDriver driver;
 
     @BeforeMethod
-    public void setUp(){
+    public void setUp() {
         System.setProperty("webdriver.chrome.webdriver", "src/test/resources/chromedriver/chromedriver");
         driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(8, TimeUnit.SECONDS);
@@ -31,9 +31,10 @@ public abstract class BaseTest {
 
     /**
      * returns first page
+     *
      * @return an initiated page
      */
-    protected BookingTopMenuPage returnBookingTopMenuPage(){
+    protected BookingTopMenuPage returnBookingTopMenuPage() {
         return new BookingTopMenuPage(driver);
     }
 }

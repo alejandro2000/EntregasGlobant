@@ -35,10 +35,23 @@ public class DataManupulation {
         return monthInSpanish;
     }
 
+    /**
+     * Add zeros to a String number.
+     *
+     * @param numberWithoutZeros String number without zeros.
+     * @return An string with comma and zeros.
+     */
     public static String addFinalZeros(String numberWithoutZeros) {
         return numberWithoutZeros + ",0";
     }
 
+    /**
+     * concatenate two Strings.
+     *
+     * @param name     First value.
+     * @param lastName Second value.
+     * @return A concatenated string.
+     */
     public static String concatenateNameAndLastName(String name, String lastName) {
         return name + " " + lastName;
     }

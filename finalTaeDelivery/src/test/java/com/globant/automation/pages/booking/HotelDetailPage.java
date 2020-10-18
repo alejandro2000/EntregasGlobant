@@ -1,4 +1,4 @@
-package com.globant.automation.pages;
+package com.globant.automation.pages.booking;
 
 import com.globant.automation.utils.pages.BasePage;
 import org.openqa.selenium.WebDriver;
@@ -15,26 +15,41 @@ public class HotelDetailPage extends BasePage {
         super(pDriver);
     }
 
-    public String getHotelDescription(){
+    /**
+     * @return Hotel description.
+     */
+    public String getHotelDescription() {
         return driver.findElement(HOTEL_DESCRIPTION).getText();
     }
 
-    public String getHotelPrice(){
+    /**
+     * @return Hotel price.
+     */
+    public String getHotelPrice() {
         return driver.findElement(HOTEL_PRICE).getText();
     }
 
-    public boolean isCheckInAndCheckOutVisible(){
+    /**
+     * @return Whether the CheckIn and CheckOut form is visible.
+     */
+    public boolean isCheckInAndCheckOutVisible() {
         try {
             return driver.findElement(FORM_WITH_FILTERS).isDisplayed();
-        }catch (Exception e){
+        } catch (Exception e) {
             return false;
         }
     }
 
-    public FinalStepsGeneralData selectBedRoomsAmount(int bedrooms){
+    /**
+     * Selects the amount of bedrooms.
+     *
+     * @param bedrooms Amount.
+     * @return Next page.
+     */
+    public FinalStepsGeneralData selectBedRoomsAmount(int bedrooms) {
         scrollUntilVisibilityOfElement(BEDROOMS_AMOUNT);
-        selectFromOptionsByIndex(BEDROOMS_AMOUNT,bedrooms);
-        waitElementToBeVisible(RESERVE_HOTEL,10);
+        selectFromOptionsByIndex(BEDROOMS_AMOUNT, bedrooms);
+        waitElementToBeVisible(RESERVE_HOTEL, 10);
         javascriptClick(RESERVE_HOTEL);
         return new FinalStepsGeneralData(driver);
     }

@@ -6,7 +6,6 @@ import org.openqa.selenium.support.ui.*;
 
 import java.time.Duration;
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 import java.util.function.Function;
 
 
@@ -15,14 +14,14 @@ import java.util.function.Function;
  */
 public abstract class BasePage {
 
-    public WebDriver driver;
+    protected WebDriver driver;
 
     /**
      * Constructor method for standard screen object.
      *
      * @param pDriver : WebDriverDriver.
      */
-    public BasePage(WebDriver pDriver) {
+    protected BasePage(WebDriver pDriver) {
         this.driver = pDriver;
         initElements();
     }
@@ -40,7 +39,7 @@ public abstract class BasePage {
      * @param locator location with an specific strategy.
      * @return the element, ready to interact or ask.
      */
-    public WebElement findElement(By locator) {
+    protected WebElement findElement(By locator) {
         return driver.findElement(locator);
     }
 
@@ -51,7 +50,7 @@ public abstract class BasePage {
      * @param locator location with an specific strategy.
      * @return a list of elements.
      */
-    public List<WebElement> findElements(By locator) {
+    protected List<WebElement> findElements(By locator) {
         return driver.findElements(locator);
     }
 
@@ -61,7 +60,7 @@ public abstract class BasePage {
      * @param element html object.
      * @return the text of the element.
      */
-    public String getText(WebElement element) {
+    protected String getText(WebElement element) {
         return element.getText();
     }
 
@@ -69,7 +68,7 @@ public abstract class BasePage {
      * @param locator location with an specific strategy.
      * @return the text of the element to get.
      */
-    public String getText(By locator) {
+    protected String getText(By locator) {
         return driver.findElement(locator).getText();
     }
 
@@ -77,7 +76,7 @@ public abstract class BasePage {
      * @param text    To enter in the field.
      * @param locator Location with an specific strategy.
      */
-    public void type(String text, By locator) {
+    protected void type(String text, By locator) {
         driver.findElement(locator).sendKeys(text);
     }
 
@@ -85,7 +84,7 @@ public abstract class BasePage {
      * @param action  whether click a check or not.
      * @param locator location with an specific strategy.
      */
-    public void checkItem(boolean action, By locator) {
+    protected void checkItem(boolean action, By locator) {
         if (action) {
             driver.findElement(locator).click();
         }
@@ -96,7 +95,7 @@ public abstract class BasePage {
      *
      * @param locator location with an specific strategy.
      */
-    public void click(By locator) {
+    protected void click(By locator) {
         driver.findElement(locator).click();
     }
 
@@ -104,7 +103,7 @@ public abstract class BasePage {
      * @param locator Location with an specific strategy.
      * @return The state of the element.
      */
-    public Boolean isDisplayed(By locator) {
+    protected Boolean isDisplayed(By locator) {
         try {
             return driver.findElement(locator).isDisplayed();
         } catch (NoSuchElementException e) {
@@ -117,7 +116,7 @@ public abstract class BasePage {
      *
      * @param frame To work with.
      */
-    public void switchToFrame(String frame) {
+    protected void switchToFrame(String frame) {
         WebDriverWait wait = new WebDriverWait(driver, 15);
         wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(By.id(frame)));
     }
@@ -126,7 +125,7 @@ public abstract class BasePage {
      * Switch to the main content in order to
      * keep interacting with the elements.
      */
-    public void switchOutOfFrame() {
+    protected void switchOutOfFrame() {
         driver.switchTo().defaultContent();
     }
 
@@ -136,31 +135,36 @@ public abstract class BasePage {
      *
      * @param locator Location with an specific strategy.
      */
-    public void scrollUntilVisibilityOfElement(By locator) {
+    protected void scrollUntilVisibilityOfElement(By locator) {
         WebElement element = driver.findElement(locator);
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
     }
 
     /**
-     * It scrolls the page until and element be present
-     * in the current user visibility.
+     * Performs a click using javaScript.
      *
      * @param locator Location with an specific strategy.
      */
-    public void javascriptClick(By locator) {
+    protected void javascriptClick(By locator) {
         WebElement element = driver.findElement(locator);
         ((JavascriptExecutor) driver).executeScript("arguments[0].click();", element);
     }
 
-    public void javascriptValueInput(By locator,String text) {
+    /**
+     * Modifies the value of an input using javaScript.
+     *
+     * @param locator Element to be modified.
+     * @param text    To be added.
+     */
+    protected void javascriptValueInput(By locator, String text) {
         WebElement element = driver.findElement(locator);
-        ((JavascriptExecutor) driver).executeScript("arguments[0].value='"+text+"';", element);
+        ((JavascriptExecutor) driver).executeScript("arguments[0].value='" + text + "';", element);
     }
 
     /**
      * It scrolls the website to the bottom of the page.
      */
-    public void scrollUntilBottom() {
+    protected void scrollUntilBottom() {
         ((JavascriptExecutor) driver).executeScript("window.scrollTo(0,document.body.scrollHeight);");
     }
 
@@ -170,14 +174,14 @@ public abstract class BasePage {
      *
      * @param url The website url to be opened,
      */
-    public void visitWebSite(String url) {
+    protected void visitWebSite(String url) {
         driver.get(url);
     }
 
     /**
      * It closes the chromeDriver session.
      */
-    public void closeBrowser() {
+    protected void closeBrowser() {
         driver.quit();
     }
 
@@ -187,7 +191,7 @@ public abstract class BasePage {
      *
      * @param locator Location with an specific strategy.
      */
-    public void waitElementToBeClickable(By locator) {
+    protected void waitElementToBeClickable(By locator) {
         Wait<WebDriver> wait = new FluentWait<WebDriver>(driver)
                 .withTimeout(Duration.ofSeconds(30))
                 .pollingEvery(Duration.ofSeconds(3))
@@ -208,7 +212,7 @@ public abstract class BasePage {
      * @param locator Location with an specific strategy.
      * @param seconds To wait.
      */
-    public void waitElementToBeVisible(By locator, int seconds) {
+    protected void waitElementToBeVisible(By locator, int seconds) {
         try {
             WebElement element = driver.findElement(locator);
             WebElement elementWaiting = new WebDriverWait(driver, seconds)
@@ -222,7 +226,7 @@ public abstract class BasePage {
      * Wait for the page to
      * completly charge.
      */
-    public void waitForPageToReload() {
+    protected void waitForPageToReload() {
         new WebDriverWait(driver, 10).until(
                 webDriver -> ((JavascriptExecutor) webDriver).executeScript("return document.readyState").equals(
                         "complete"));
@@ -235,7 +239,7 @@ public abstract class BasePage {
      * @param locator Location with an specific strategy.
      * @param seconds The amount of seconds you want to wait for the element.
      */
-    public void waitElementToBeClickableItem(By locator, int seconds) {
+    protected void waitElementToBeClickableItem(By locator, int seconds) {
         WebElement element = driver.findElement(locator);
         WebElement elementWaiting = new WebDriverWait(driver, seconds)
                 .until(ExpectedConditions.presenceOfElementLocated(locator));
@@ -245,7 +249,7 @@ public abstract class BasePage {
      * @return The url text where the page is currently
      * active.
      */
-    public String getPageSource() {
+    protected String getPageSource() {
         return driver.getPageSource();
     }
 
@@ -255,7 +259,7 @@ public abstract class BasePage {
      *
      * @param cssSelector Specific location type.
      */
-    public void waitNoVisibleIframe(String cssSelector) throws Exception {
+    protected void waitNoVisibleIframe(String cssSelector) throws Exception {
         Boolean elementWaiting = new WebDriverWait(driver, 8)
                 .until(ExpectedConditions.not(
                         ExpectedConditions.presenceOfElementLocated(By.cssSelector(cssSelector))));
@@ -267,7 +271,7 @@ public abstract class BasePage {
      *
      * @param cssSelector Specific location type.
      */
-    public void waitVisibleIframe(String cssSelector) throws Exception {
+    protected void waitVisibleIframe(String cssSelector) throws Exception {
         WebElement elementWaiting = new WebDriverWait(driver, 8)
                 .until(ExpectedConditions.presenceOfElementLocated(By.cssSelector(cssSelector)));
     }
@@ -278,7 +282,7 @@ public abstract class BasePage {
      *
      * @param selector Specific location type.
      */
-    public void waitNoVisibleElement(By selector) {
+    protected void waitNoVisibleElement(By selector) {
         try {
             Boolean elementWaiting = new WebDriverWait(driver, 8)
                     .until(ExpectedConditions.not(
@@ -294,7 +298,7 @@ public abstract class BasePage {
      * @param text To be searched.
      * @return the state of the element.
      */
-    public boolean visibilityOfAnElementByText(String text) {
+    protected boolean visibilityOfAnElementByText(String text) {
         try {
             WebElement element = driver.findElement(By.xpath("//div[contains(text(),'" + text + "')]"));
             return element.isDisplayed();
@@ -308,39 +312,39 @@ public abstract class BasePage {
      *
      * @param date Date to be clicked.
      */
-    public void clickOnDate(String date) {
+    protected void clickOnDate(String date) {
         WebElement element = driver.findElement(By.cssSelector("td[data-date='" + date + "']"));
         element.click();
     }
 
     /**
-     * Select an item from a list of options.
+     * Select an item from a list of options by Text.
      *
      * @param locator    The html select element.
      * @param textOption Text that the select could contain.
      */
-    public void selectFromOptionsByText(By locator, String textOption) {
+    protected void selectFromOptionsByText(By locator, String textOption) {
         WebElement testDropDown = driver.findElement(locator);
         Select dropdown = new Select(testDropDown);
         dropdown.selectByVisibleText(textOption);
     }
 
     /**
-     * Select an item from a list of options.
+     * Select an item from a list of options by its index.
      *
-     * @param locator    The html select element.
-     * @param index Number of the option to select.
+     * @param locator The html select element.
+     * @param index   Number of the option to select.
      */
-    public void selectFromOptionsByIndex(By locator, int index) {
+    protected void selectFromOptionsByIndex(By locator, int index) {
         WebElement testDropDown = driver.findElement(locator);
         Select dropdown = new Select(testDropDown);
         dropdown.selectByIndex(index);
     }
 
     /**
-     * Switch to a new windows, using windows handles
+     * Switch to a new windows, using windows handles.
      */
-    public void switchToANextWindow() {
+    protected void switchToANextWindow() {
         for (String winHandle : driver.getWindowHandles()) {
             driver.switchTo().window(winHandle);
         }
