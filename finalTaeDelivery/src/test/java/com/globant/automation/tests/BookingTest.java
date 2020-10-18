@@ -1,8 +1,11 @@
 package com.globant.automation.tests;
 
 import com.globant.automation.pages.BookingTopMenuPage;
+import com.globant.automation.pages.HotelDetailPage;
 import com.globant.automation.pages.ListOfHotelsPage;
+import com.globant.automation.utils.constants.InfoValidationData;
 import com.globant.automation.utils.tests.BaseTest;
+import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
@@ -29,7 +32,13 @@ public class BookingTest extends BaseTest {
         bookingTopMenuPage.addGuestsInformation(adults, children, bedrooms, childAge);
         ListOfHotelsPage listOfHotelsPage = bookingTopMenuPage.searchWithFilters();
         listOfHotelsPage.selectHotelFromList();
-
+        listOfHotelsPage.saveDateToValidate();
+        listOfHotelsPage.selectHotelCard();
+        HotelDetailPage hotelDetailPage = listOfHotelsPage.selectHotelCard();
+        Assert.assertEquals(hotelDetailPage.getHotelDescription(), InfoValidationData.AMOUNT_AND_NIGHT_DESCRIPTION);
+        Assert.assertEquals(hotelDetailPage.getHotelPrice(), InfoValidationData.HOTEL_PRICE);
+        Assert.assertEquals(hotelDetailPage.isCheckInAndCheckOutVisible(), true);
+        hotelDetailPage.selectBedRoomsAmount(bedrooms);
 
         try {
             Thread.sleep(30000);

@@ -61,7 +61,7 @@ public class BookingTopMenuPage extends BasePage {
         modifyGuestsAmount(ADULT_CURRENT_AMOUNT, ADULTS, adult);
         modifyGuestsAmount(CHILDREN_CURRENT_AMOUNT, CHILDREN, children);
         modifyGuestsAmount(BEDROOMS_CURRENT_AMOUNT, BEDROOMS, bedrooms);
-        selectFromOptions(CHILDREN_OPTIONS, yearsOfTheChild);
+        selectFromOptionsByText(CHILDREN_OPTIONS, yearsOfTheChild);
     }
 
     /**

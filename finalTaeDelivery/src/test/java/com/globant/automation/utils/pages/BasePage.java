@@ -6,6 +6,7 @@ import org.openqa.selenium.support.ui.*;
 
 import java.time.Duration;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 import java.util.function.Function;
 
 
@@ -141,6 +142,17 @@ public abstract class BasePage {
     }
 
     /**
+     * It scrolls the page until and element be present
+     * in the current user visibility.
+     *
+     * @param locator Location with an specific strategy.
+     */
+    public void javascriptClick(By locator) {
+        WebElement element = driver.findElement(locator);
+        ((JavascriptExecutor) driver).executeScript("arguments[0].click();", element);
+    }
+
+    /**
      * It scrolls the website to the bottom of the page.
      */
     public void scrollUntilBottom() {
@@ -174,7 +186,8 @@ public abstract class BasePage {
         Wait<WebDriver> wait = new FluentWait<WebDriver>(driver)
                 .withTimeout(Duration.ofSeconds(30))
                 .pollingEvery(Duration.ofSeconds(3))
-                .ignoring(NoSuchElementException.class);
+                .ignoring(NoSuchElementException.class)
+                .ignoring(StaleElementReferenceException.class);
 
         WebElement foo = wait.until(new Function<WebDriver, WebElement>() {
             public WebElement apply(WebDriver driver) {
@@ -191,9 +204,13 @@ public abstract class BasePage {
      * @param seconds To wait.
      */
     public void waitElementToBeVisible(By locator, int seconds) {
-        WebElement element = driver.findElement(locator);
-        WebElement elementWaiting = new WebDriverWait(driver, seconds)
-                .until(ExpectedConditions.visibilityOf(element));
+        try {
+            WebElement element = driver.findElement(locator);
+            WebElement elementWaiting = new WebDriverWait(driver, seconds)
+                    .until(ExpectedConditions.visibilityOf(element));
+        } catch (Exception e) {
+
+        }
     }
 
     /**
@@ -251,6 +268,22 @@ public abstract class BasePage {
     }
 
     /**
+     * Wait for a frame no to be visible, in order to
+     * interact with the next elements.
+     *
+     * @param selector Specific location type.
+     */
+    public void waitNoVisibleElement(By selector) {
+        try {
+            Boolean elementWaiting = new WebDriverWait(driver, 8)
+                    .until(ExpectedConditions.not(
+                            ExpectedConditions.presenceOfElementLocated(selector)));
+        } catch (Exception e) {
+
+        }
+    }
+
+    /**
      * Ask for the state of an element with text parameter.
      *
      * @param text To be searched.
@@ -281,10 +314,30 @@ public abstract class BasePage {
      * @param locator    The html select element.
      * @param textOption Text that the select could contain.
      */
-    public void selectFromOptions(By locator, String textOption) {
+    public void selectFromOptionsByText(By locator, String textOption) {
         WebElement testDropDown = driver.findElement(locator);
         Select dropdown = new Select(testDropDown);
         dropdown.selectByVisibleText(textOption);
     }
 
+    /**
+     * Select an item from a list of options.
+     *
+     * @param locator    The html select element.
+     * @param index Number of the option to select.
+     */
+    public void selectFromOptionsByIndex(By locator, int index) {
+        WebElement testDropDown = driver.findElement(locator);
+        Select dropdown = new Select(testDropDown);
+        dropdown.selectByIndex(index);
+    }
+
+    /**
+     * Switch to a new windows, using windows handles
+     */
+    public void switchToANextWindow() {
+        for (String winHandle : driver.getWindowHandles()) {
+            driver.switchTo().window(winHandle);
+        }
+    }
 }
