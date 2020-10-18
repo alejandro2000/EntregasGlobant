@@ -2,10 +2,8 @@ package com.globant.automation.utils.pages;
 
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.FluentWait;
-import org.openqa.selenium.support.ui.Wait;
-import org.openqa.selenium.support.ui.WebDriverWait;
+import org.openqa.selenium.support.ui.*;
+
 import java.time.Duration;
 import java.util.List;
 import java.util.function.Function;
@@ -16,7 +14,7 @@ import java.util.function.Function;
  */
 public abstract class BasePage {
 
-    private WebDriver driver;
+    public WebDriver driver;
 
     /**
      * Constructor method for standard screen object.
@@ -37,6 +35,7 @@ public abstract class BasePage {
 
     /**
      * locates an element in the HTML Doom.
+     *
      * @param locator location with an specific strategy.
      * @return the element, ready to interact or ask.
      */
@@ -47,6 +46,7 @@ public abstract class BasePage {
     /**
      * look for a list of elements with
      * the same locator in the Doom.
+     *
      * @param locator location with an specific strategy.
      * @return a list of elements.
      */
@@ -56,6 +56,7 @@ public abstract class BasePage {
 
     /**
      * extracts the text of a element.
+     *
      * @param element html object.
      * @return the text of the element.
      */
@@ -72,7 +73,7 @@ public abstract class BasePage {
     }
 
     /**
-     * @param text To enter in the field.
+     * @param text    To enter in the field.
      * @param locator Location with an specific strategy.
      */
     public void type(String text, By locator) {
@@ -80,7 +81,7 @@ public abstract class BasePage {
     }
 
     /**
-     * @param action whether click a check or not.
+     * @param action  whether click a check or not.
      * @param locator location with an specific strategy.
      */
     public void checkItem(boolean action, By locator) {
@@ -91,6 +92,7 @@ public abstract class BasePage {
 
     /**
      * Perform a click in the page.
+     *
      * @param locator location with an specific strategy.
      */
     public void click(By locator) {
@@ -111,6 +113,7 @@ public abstract class BasePage {
 
     /**
      * It wait until the given frame be available and switch to it.
+     *
      * @param frame To work with.
      */
     public void switchToFrame(String frame) {
@@ -129,6 +132,7 @@ public abstract class BasePage {
     /**
      * It scrolls the page until and element be present
      * in the current user visibility.
+     *
      * @param locator Location with an specific strategy.
      */
     public void scrollUntilVisibilityOfElement(By locator) {
@@ -146,6 +150,7 @@ public abstract class BasePage {
     /**
      * It opens a new chromeDriver session in
      * an specific website.
+     *
      * @param url The website url to be opened,
      */
     public void visitWebSite(String url) {
@@ -162,6 +167,7 @@ public abstract class BasePage {
     /**
      * Using fluent waits to ask for an element with
      * a polling time.
+     *
      * @param locator Location with an specific strategy.
      */
     public void waitElementToBeClickable(By locator) {
@@ -180,6 +186,7 @@ public abstract class BasePage {
     /**
      * Wait for an element to be visible with an
      * specific expected condition.
+     *
      * @param locator Location with an specific strategy.
      * @param seconds To wait.
      */
@@ -190,8 +197,8 @@ public abstract class BasePage {
     }
 
     /**
-     *  Wait for the page to
-     *  completly charge.
+     * Wait for the page to
+     * completly charge.
      */
     public void waitForPageToReload() {
         new WebDriverWait(driver, 10).until(
@@ -202,6 +209,7 @@ public abstract class BasePage {
     /**
      * Wait for an element to be clickable with an specific
      * expected condition.
+     *
      * @param locator Location with an specific strategy.
      * @param seconds The amount of seconds you want to wait for the element.
      */
@@ -222,6 +230,7 @@ public abstract class BasePage {
     /**
      * Wait for a frame no to be visible, in order to
      * interact with the next elements.
+     *
      * @param cssSelector Specific location type.
      */
     public void waitNoVisibleIframe(String cssSelector) throws Exception {
@@ -233,10 +242,49 @@ public abstract class BasePage {
     /**
      * Wait for a frame to be visible, in order to
      * interact with the elements within it.
+     *
      * @param cssSelector Specific location type.
      */
     public void waitVisibleIframe(String cssSelector) throws Exception {
         WebElement elementWaiting = new WebDriverWait(driver, 8)
                 .until(ExpectedConditions.presenceOfElementLocated(By.cssSelector(cssSelector)));
     }
+
+    /**
+     * Ask for the state of an element with text parameter.
+     *
+     * @param text To be searched.
+     * @return the state of the element.
+     */
+    public boolean visibilityOfAnElementByText(String text) {
+        try {
+            WebElement element = driver.findElement(By.xpath("//div[contains(text(),'" + text + "')]"));
+            return element.isDisplayed();
+        } catch (NoSuchElementException e) {
+            return false;
+        }
+    }
+
+    /**
+     * Navigate through the date picker grid.
+     *
+     * @param date Date to be clicked.
+     */
+    public void clickOnDate(String date) {
+        WebElement element = driver.findElement(By.cssSelector("td[data-date='" + date + "']"));
+        element.click();
+    }
+
+    /**
+     * Select an item from a list of options.
+     *
+     * @param locator    The html select element.
+     * @param textOption Text that the select could contain.
+     */
+    public void selectFromOptions(By locator, String textOption) {
+        WebElement testDropDown = driver.findElement(locator);
+        Select dropdown = new Select(testDropDown);
+        dropdown.selectByVisibleText(textOption);
+    }
+
 }

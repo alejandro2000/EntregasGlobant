@@ -1,5 +1,6 @@
 package com.globant.automation.utils.tests;
 
+import com.globant.automation.pages.BookingTopMenuPage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterMethod;
@@ -15,8 +16,8 @@ public abstract class BaseTest {
     public void setUp(){
         System.setProperty("webdriver.chrome.webdriver", "src/test/resources/chromedriver/chromedriver");
         driver = new ChromeDriver();
-        driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
-        driver.manage().timeouts().pageLoadTimeout(15, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(8, TimeUnit.SECONDS);
+        driver.manage().timeouts().pageLoadTimeout(8, TimeUnit.SECONDS);
         driver.manage().window().maximize();
     }
 
@@ -26,5 +27,13 @@ public abstract class BaseTest {
     @AfterMethod(alwaysRun = true)
     public void mobileApplicationEnd() {
         driver.quit();
+    }
+
+    /**
+     * returns first page
+     * @return an initiated page
+     */
+    protected BookingTopMenuPage returnBookingTopMenuPage(){
+        return new BookingTopMenuPage(driver);
     }
 }
