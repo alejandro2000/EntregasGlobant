@@ -31,10 +31,11 @@ public class HotelDetailPage extends BasePage {
         }
     }
 
-    public void selectBedRoomsAmount(int bedrooms){
+    public FinalStepsGeneralData selectBedRoomsAmount(int bedrooms){
         scrollUntilVisibilityOfElement(BEDROOMS_AMOUNT);
         selectFromOptionsByIndex(BEDROOMS_AMOUNT,bedrooms);
         waitElementToBeVisible(RESERVE_HOTEL,10);
         javascriptClick(RESERVE_HOTEL);
+        return new FinalStepsGeneralData(driver);
     }
 }

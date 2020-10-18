@@ -34,4 +34,12 @@ public class DataManupulation {
         String monthInSpanish = currentDate.format(DateTimeFormatter.ofPattern("MMMM", spanishLocale));
         return monthInSpanish;
     }
+
+    public static String addFinalZeros(String numberWithoutZeros) {
+        return numberWithoutZeros + ",0";
+    }
+
+    public static String concatenateNameAndLastName(String name, String lastName) {
+        return name + " " + lastName;
+    }
 }

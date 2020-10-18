@@ -2,7 +2,7 @@ package com.globant.automation.ui;
 
 import org.openqa.selenium.By;
 
-public class BookingLandingPage {
+public class BookingLandingUi {
 
     public static final By LOCATION = By.id("ss");
     public static final By DATES_ACCOMMODATION = By.cssSelector("div.xp__dates");

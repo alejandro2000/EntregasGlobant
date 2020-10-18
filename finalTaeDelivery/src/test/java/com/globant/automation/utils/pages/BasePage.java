@@ -152,6 +152,11 @@ public abstract class BasePage {
         ((JavascriptExecutor) driver).executeScript("arguments[0].click();", element);
     }
 
+    public void javascriptValueInput(By locator,String text) {
+        WebElement element = driver.findElement(locator);
+        ((JavascriptExecutor) driver).executeScript("arguments[0].value='"+text+"';", element);
+    }
+
     /**
      * It scrolls the website to the bottom of the page.
      */

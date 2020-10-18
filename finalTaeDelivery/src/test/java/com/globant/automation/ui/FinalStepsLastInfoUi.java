@@ -2,7 +2,7 @@ package com.globant.automation.ui;
 
 import org.openqa.selenium.By;
 
-public class FinalStepsLastInfo {
+public class FinalStepsLastInfoUi {
 
     public static final By HOTEL_TITLE = By.cssSelector("h1[class='bui-f-font-display_two bui-spacer--small']");
     public static final By HOTEL_SCORE = By.cssSelector("div.bui-review-score__badge");
@@ -12,8 +12,6 @@ public class FinalStepsLastInfo {
     public static final By BOOKER_PHONE = By.cssSelector("#phone");
     public static final By CREDIT_CARD_TYPE = By.cssSelector("#cc_type");
     public static final By CREDIT_CARD_NUMBER = By.cssSelector("#cc_number");
-    public static final By CREDIT_CARD_MONTH = By.cssSelector("#cc_month");
-    public static final By CREDIT_CARD_YEAR = By.cssSelector("#ccYear");
     public static final By CREDIT_CARD_CVC = By.cssSelector("#cc_cvc");
 
 
