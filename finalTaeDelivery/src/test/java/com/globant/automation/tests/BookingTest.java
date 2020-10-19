@@ -21,7 +21,7 @@ public class BookingTest extends BaseTest {
      * -> Hotel price.
      * -> CheckIn and CheckOut visible.
      */
-    @Test(description = "Booking to validate data integrity id=00001", dataProvider = "dataProvider")
+    @Test(description = "Booking to validate data integrity id=00001", dataProvider = "dataProviderDetails")
     public void bookingToLocation(String location, int adults, int children, int bedrooms, String childAge) {
         BookingTopMenuPage bookingTopMenuPage = returnBookingTopMenuPage();
         bookingTopMenuPage.openTheWebsite(WEBSITE);
@@ -48,7 +48,8 @@ public class BookingTest extends BaseTest {
      * -> Booker name.
      * -> Booker email.
      */
-    @Test(description = "Booking to a destination filling until the last form id=00002", dataProvider = "dataProvider")
+    @Test(description = "Booking to a destination filling until the last form id=00002", dataProvider =
+            "dataProviderForms")
     public void completeBooking(String location, int adults, int children, int bedrooms, String childAge
             , String bookerName, String bookerLastName, String bookerEmail, String cc, String cvc, String phone) {
         BookingTopMenuPage bookingTopMenuPage = returnBookingTopMenuPage();
@@ -74,10 +75,17 @@ public class BookingTest extends BaseTest {
     }
 
     @DataProvider
-    public Object[][] dataProvider() {
+    public Object[][] dataProviderDetails() {
         return new Object[][]{
-                new Object[]{"Bogotá, Colombia", 3, 1, 1, "9 años", "Alejandro", "Taborda", "Alejandro" +
-                        ".tabordacadavid@gmail.com", "Colombia", "3431 321850 02752", "1234", "3006591342"}
+                new Object[]{"Bogotá, Colombia", 3, 1, 1, "9 años"}
+        };
+    }
+
+    @DataProvider
+    public Object[][] dataProviderForms() {
+        return new Object[][]{
+                new Object[]{"Bogotá, Colombia", 3, 1, 1, "9 años", "Alejandro", "Taborda", "alejandro" +
+                        ".tabordacadavid@gmail.com", "3431 321850 02752", "1234", "3006591342"}
         };
     }
 
