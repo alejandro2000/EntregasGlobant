@@ -21,7 +21,7 @@ public abstract class BasePage {
      *
      * @param pDriver : WebDriverDriver.
      */
-    protected BasePage(WebDriver pDriver) {
+    public BasePage(WebDriver pDriver) {
         this.driver = pDriver;
         initElements();
     }
@@ -159,6 +159,17 @@ public abstract class BasePage {
     protected void javascriptValueInput(By locator, String text) {
         WebElement element = driver.findElement(locator);
         ((JavascriptExecutor) driver).executeScript("arguments[0].value='" + text + "';", element);
+    }
+
+    /**
+     * Modifies the value of an input using javaScript.
+     *
+     * @param locator Element to be modified.
+     * @param text    To be added.
+     */
+    protected void javascriptInput(By locator, String text) {
+        WebElement element = driver.findElement(locator);
+        ((JavascriptExecutor) driver).executeScript("arguments[0].setAttribute('value','"+text+"');", element);
     }
 
     /**

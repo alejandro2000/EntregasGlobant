@@ -55,4 +55,10 @@ public class DataManupulation {
     public static String concatenateNameAndLastName(String name, String lastName) {
         return name + " " + lastName;
     }
+
+    public static String getTotal(String productCost,String productAmount){
+        int cost = Integer.valueOf(productCost);
+        int amount = Integer.valueOf(productAmount);
+        return String.valueOf(cost*amount);
+    }
 }

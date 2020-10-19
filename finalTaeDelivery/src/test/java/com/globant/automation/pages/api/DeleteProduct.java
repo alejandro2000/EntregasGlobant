@@ -1,15 +1,30 @@
 package com.globant.automation.pages.api;
 
-import com.globant.automation.utils.pages.BasePage;
-import org.openqa.selenium.WebDriver;
+import com.globant.automation.utils.api.ApiHeadersManipulation;
+import com.globant.automation.utils.tests.BaseServices;
 
-public class DeleteProduct extends BasePage {
+import static com.globant.automation.utils.constants.InfoValidationData.API_PRODUCT_ID;
+
+public class DeleteProduct extends BaseServices {
+
+    private static final String DELETE_PRODUCT_SOURCE = "/wp-json/wc/v3/products/" + API_PRODUCT_ID;
+
+
     /**
-     * Constructor method for standard screen object.
+     * This is the constructor of the class
+     * and it needs the base url depending on
+     * which task is using the BaseService.
      *
-     * @param pDriver : WebDriverDriver.
+     * @param baseUrl
      */
-    protected DeleteProduct(WebDriver pDriver) {
-        super(pDriver);
+    public DeleteProduct(String baseUrl) {
+        super(baseUrl);
+    }
+
+    /**
+     * Delete a product using the api.
+     */
+    public void deleteProductFromShoppingStore() {
+        jsonResponseDelete(DELETE_PRODUCT_SOURCE, ApiHeadersManipulation.settingUpHeaders());
     }
 }

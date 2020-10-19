@@ -6,7 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.testng.log4testng.Logger;
 
-import static com.globant.automation.ui.ListOfHotelsUi.*;
+import static com.globant.automation.ui.booking.ListOfHotelsUi.*;
 
 public class ListOfHotelsPage extends BasePage {
 

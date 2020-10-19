@@ -3,7 +3,7 @@ package com.globant.automation.pages.booking;
 import com.globant.automation.utils.pages.BasePage;
 import org.openqa.selenium.WebDriver;
 
-import static com.globant.automation.ui.FinalStepsLastInfoUi.*;
+import static com.globant.automation.ui.booking.FinalStepsLastInfoUi.*;
 
 public class FinalStepsLastInfo extends BasePage {
     /**

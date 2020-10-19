@@ -1,4 +1,4 @@
-package com.globant.automation.ui;
+package com.globant.automation.ui.booking;
 
 import org.openqa.selenium.By;
 

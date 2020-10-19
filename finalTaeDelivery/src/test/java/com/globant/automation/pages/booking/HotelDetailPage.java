@@ -3,7 +3,7 @@ package com.globant.automation.pages.booking;
 import com.globant.automation.utils.pages.BasePage;
 import org.openqa.selenium.WebDriver;
 
-import static com.globant.automation.ui.HotelDetailUi.*;
+import static com.globant.automation.ui.booking.HotelDetailUi.*;
 
 public class HotelDetailPage extends BasePage {
     /**

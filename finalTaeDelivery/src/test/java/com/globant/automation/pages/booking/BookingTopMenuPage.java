@@ -5,7 +5,7 @@ import com.globant.automation.utils.pages.BasePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-import static com.globant.automation.ui.BookingLandingUi.*;
+import static com.globant.automation.ui.booking.BookingLandingUi.*;
 import static com.globant.automation.utils.constants.TestsConstants.CHECK_IN;
 import static com.globant.automation.utils.constants.TestsConstants.CHECK_OUT;
 

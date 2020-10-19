@@ -1,19 +1,36 @@
 package com.globant.automation.pages.api;
 
-import com.globant.automation.utils.pages.BasePage;
-import org.openqa.selenium.WebDriver;
+import com.globant.automation.utils.api.ApiHeadersManipulation;
+import com.globant.automation.utils.pojo.BuildProduct;
+import com.globant.automation.utils.tests.BaseServices;
+import io.restassured.path.json.JsonPath;
 
-public class CreateShoppingProduct extends BasePage {
+import static com.globant.automation.utils.constants.InfoValidationData.API_PRODUCT_ID;
+
+public class CreateShoppingProduct extends BaseServices {
+
+    private static final String RESOURCE = "/wp-json/wc/v3/products";
+
     /**
-     * Constructor method for standard screen object.
+     * This is the constructor of the class
+     * and it needs the base url depending on
+     * which task is using the BaseService.
      *
-     * @param pDriver : WebDriverDriver.
+     * @param baseUrl
      */
-    protected CreateShoppingProduct(WebDriver pDriver) {
-        super(pDriver);
+    public CreateShoppingProduct(String baseUrl) {
+        super(baseUrl);
     }
 
-    public void usingApi(){
-
+    /**
+     * Creates a new product.
+     *
+     * @param name
+     * @param price
+     */
+    public void usingApi(String name, String price) {
+        JsonPath jsonPath = jsonResponsePost(RESOURCE, BuildProduct.createProduct(name, price),
+                ApiHeadersManipulation.settingUpHeaders());
+        API_PRODUCT_ID = jsonPath.get("id").toString();
     }
 }
