@@ -30,6 +30,8 @@ public class ListOfHotelsPage extends BasePage {
     }
 
     public void saveDateToValidate() {
+        waitElementToBeVisible(LOADING_HOTELS_WITH_FILTERS, 10);
+        waitNoVisibleElement(LOADING_HOTELS_WITH_FILTERS);
         InfoValidationData.HOTEL_TITLE = getText(HOTEL_TITLE);
         InfoValidationData.HOTEL_SCORE = getScoreFromHotelCard();
         InfoValidationData.HOTEL_PRICE = getText(HOTEL_PRICE);
