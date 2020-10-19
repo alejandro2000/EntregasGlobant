@@ -1,4 +1,4 @@
-globant resources and activities
+Globant resources and activities
 
 Steps to run the project:
 
@@ -8,7 +8,9 @@ Steps to run the project:
 
 3th step -> Run the command 'mvn clean verify' to run all the contained tests.
 
-Note : If you want to run a specific test we just have to modify the testng.xml file.
+Note : If you want to run a specific test we just have to modify the testng.xml file,
+also be sure to update the chromedriver version according to you Google Chrome program
+the chromedriver is stored in src/test/resources/chromedriver/.
 
 by : Alejandro Taborda Cadavid
 2020
